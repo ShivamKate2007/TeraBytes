@@ -1,0 +1,90 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: white;
+}
+
+.logo-icon {
+  color: var(--primary);
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: white;
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.submit-link {
+  color: var(--secondary);
+}
+
+.submit-link:hover, .submit-link.active {
+  color: white;
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.admin-link {
+  color: #fbbf24;
+}
+
+.admin-link:hover, .admin-link.active {
+  color: white;
+  background: rgba(251, 191, 36, 0.15);
+}
+
+@media (max-width: 600px) {
+  .logo-text {
+    display: none;
+  }
+  
+  .navbar-links {
+    gap: 0.5rem;
+  }
+}
