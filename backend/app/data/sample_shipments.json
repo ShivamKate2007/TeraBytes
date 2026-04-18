@@ -1,0 +1,3502 @@
+[
+  {
+    "id": "SHP-FBBB5455",
+    "cargoType": "Apparel",
+    "priority": "critical",
+    "weight": 2591.3,
+    "value": 3712905.36,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "patna_hub",
+        "nodeName": "Patna Transport Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 80,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-7001",
+    "routeId": "RT-872",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "kolkata_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "kolkata_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-1F20FA9C",
+    "cargoType": "FMCG",
+    "priority": "critical",
+    "weight": 3036.3,
+    "value": 2805266.57,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 79,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-6272",
+    "routeId": "RT-329",
+    "status": "at_manufacturer",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-C766B226",
+    "cargoType": "Electronics",
+    "priority": "low",
+    "weight": 3203.3,
+    "value": 2626622.46,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": "2026-04-11T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "indore_hub",
+        "nodeName": "Indore Transit Center",
+        "status": "active",
+        "arrivedAt": "2026-04-12T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.7196,
+      "lng": 75.8577
+    },
+    "currentStage": "warehouse",
+    "riskScore": 41,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-1778",
+    "routeId": "RT-246",
+    "status": "at_warehouse",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "indore_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "indore_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-DA9C21D9",
+    "cargoType": "Auto Parts",
+    "priority": "high",
+    "weight": 4473.1,
+    "value": 1736824.95,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "lucknow_wh",
+        "nodeName": "Lucknow Regional Warehouse",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 31,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-2574",
+    "routeId": "RT-313",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "lucknow_wh",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "lucknow_wh",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-FDD384C5",
+    "cargoType": "Auto Parts",
+    "priority": "high",
+    "weight": 744.5,
+    "value": 468431.13,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 20.62359034105457,
+      "lng": 73.77031780823754
+    },
+    "currentStage": "in_transit",
+    "riskScore": 40,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9011",
+    "routeId": "RT-541",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "bangalore_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "bangalore_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-5D10D04A",
+    "cargoType": "Auto Parts",
+    "priority": "critical",
+    "weight": 901.1,
+    "value": 3916683.89,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "indore_hub",
+        "nodeName": "Indore Transit Center",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": "2026-04-14T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 46,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3379",
+    "routeId": "RT-759",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "indore_hub",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "indore_hub",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-B51F921B",
+    "cargoType": "Auto Parts",
+    "priority": "critical",
+    "weight": 4175.1,
+    "value": 3462891.01,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T14:30:15.551259Z",
+        "departedAt": "2026-04-14T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "completed",
+        "arrivedAt": "2026-04-15T00:30:15.551259Z",
+        "departedAt": "2026-04-15T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": "2026-04-15T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-16T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 83,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-4381",
+    "routeId": "RT-166",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "bangalore_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "bangalore_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-F6061D4B",
+    "cargoType": "Electronics",
+    "priority": "medium",
+    "weight": 4680.2,
+    "value": 324524.84,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-10T14:30:15.551259Z",
+        "departedAt": "2026-04-10T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "guwahati_hub",
+        "nodeName": "Guwahati Gateway Hub",
+        "status": "active",
+        "arrivedAt": "2026-04-11T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-11T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 26.1445,
+      "lng": 91.7362
+    },
+    "currentStage": "warehouse",
+    "riskScore": 26,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9836",
+    "routeId": "RT-205",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "guwahati_hub",
+      "bangalore_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "guwahati_hub",
+      "bangalore_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-E646CD11",
+    "cargoType": "FMCG",
+    "priority": "low",
+    "weight": 538.1,
+    "value": 1286427.16,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 17.05754524485489,
+      "lng": 79.68776607855033
+    },
+    "currentStage": "in_transit",
+    "riskScore": 38,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9747",
+    "routeId": "RT-738",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "nagpur_hub",
+      "delhi_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "nagpur_hub",
+      "delhi_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-C2506526",
+    "cargoType": "Pharmaceuticals",
+    "priority": "medium",
+    "weight": 3807.5,
+    "value": 671239.31,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "jaipur_wh",
+        "nodeName": "Jaipur Regional Warehouse",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": "2026-04-13T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 27.59958158113256,
+      "lng": 76.29172664257719
+    },
+    "currentStage": "in_transit",
+    "riskScore": 25,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-5829",
+    "routeId": "RT-551",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "jaipur_wh",
+      "delhi_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "jaipur_wh",
+      "delhi_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-2DEFA10D",
+    "cargoType": "Apparel",
+    "priority": "medium",
+    "weight": 4239.6,
+    "value": 3357996.68,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "active",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 23.0225,
+      "lng": 72.5714
+    },
+    "currentStage": "warehouse",
+    "riskScore": 8,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-5789",
+    "routeId": "RT-973",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "delhi_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "delhi_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-81DB1965",
+    "cargoType": "Auto Parts",
+    "priority": "low",
+    "weight": 4344.9,
+    "value": 2524797.11,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "active",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 18.5204,
+      "lng": 73.8567
+    },
+    "currentStage": "warehouse",
+    "riskScore": 29,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-2754",
+    "routeId": "RT-763",
+    "status": "at_warehouse",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-F4B3103B",
+    "cargoType": "Apparel",
+    "priority": "medium",
+    "weight": 3339.3,
+    "value": 1538251.56,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 16.301630543356428,
+      "lng": 76.47383358495539
+    },
+    "currentStage": "in_transit",
+    "riskScore": 34,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-7260",
+    "routeId": "RT-511",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "kolkata_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "kolkata_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-5BBC360C",
+    "cargoType": "Apparel",
+    "priority": "medium",
+    "weight": 3927.6,
+    "value": 4513141.45,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": "2026-04-11T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "guwahati_hub",
+        "nodeName": "Guwahati Gateway Hub",
+        "status": "active",
+        "arrivedAt": "2026-04-12T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 26.1445,
+      "lng": 91.7362
+    },
+    "currentStage": "warehouse",
+    "riskScore": 8,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-1563",
+    "routeId": "RT-726",
+    "status": "at_warehouse",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "guwahati_hub",
+      "kolkata_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "guwahati_hub",
+      "kolkata_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-FD9E39CF",
+    "cargoType": "Auto Parts",
+    "priority": "medium",
+    "weight": 4561.4,
+    "value": 2887514.32,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": "2026-04-14T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 23,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-1004",
+    "routeId": "RT-347",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-5CA578F5",
+    "cargoType": "Electronics",
+    "priority": "high",
+    "weight": 4383.5,
+    "value": 1558571.72,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": "2026-04-13T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 21.63434208686928,
+      "lng": 77.96705273858836
+    },
+    "currentStage": "in_transit",
+    "riskScore": 30,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-8312",
+    "routeId": "RT-322",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-D2D8F7CD",
+    "cargoType": "Electronics",
+    "priority": "medium",
+    "weight": 426.4,
+    "value": 1655460.84,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "active",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 17.385,
+      "lng": 78.4867
+    },
+    "currentStage": "warehouse",
+    "riskScore": 9,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3475",
+    "routeId": "RT-465",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-C83D230B",
+    "cargoType": "Pharmaceuticals",
+    "priority": "medium",
+    "weight": 1409.6,
+    "value": 280004.32,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": "2026-04-13T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "active",
+        "arrivedAt": "2026-04-13T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.5726,
+      "lng": 88.3639
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 32,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-6709",
+    "routeId": "RT-171",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-2DFE5F40",
+    "cargoType": "Auto Parts",
+    "priority": "low",
+    "weight": 2934.6,
+    "value": 1316329.26,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-14T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-16T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 36,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-4385",
+    "routeId": "RT-744",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-39A933AC",
+    "cargoType": "FMCG",
+    "priority": "medium",
+    "weight": 4072.7,
+    "value": 2328952.03,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "patna_hub",
+        "nodeName": "Patna Transport Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 22,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9750",
+    "routeId": "RT-621",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-115FC1A4",
+    "cargoType": "Apparel",
+    "priority": "low",
+    "weight": 3771.3,
+    "value": 695281.44,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.24804792823478,
+      "lng": 78.7414403789498
+    },
+    "currentStage": "in_transit",
+    "riskScore": 16,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9728",
+    "routeId": "RT-396",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-A248BBFA",
+    "cargoType": "Pharmaceuticals",
+    "priority": "low",
+    "weight": 4366.9,
+    "value": 2407073.25,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-14T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "guwahati_hub",
+        "nodeName": "Guwahati Gateway Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-16T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 22,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-2619",
+    "routeId": "RT-392",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "guwahati_hub",
+      "bangalore_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "guwahati_hub",
+      "bangalore_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-BE878D3B",
+    "cargoType": "Apparel",
+    "priority": "medium",
+    "weight": 143.0,
+    "value": 2013222.77,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 26.217483096906555,
+      "lng": 76.30995297445322
+    },
+    "currentStage": "in_transit",
+    "riskScore": 31,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-6791",
+    "routeId": "RT-294",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-B3B84B56",
+    "cargoType": "Pharmaceuticals",
+    "priority": "low",
+    "weight": 4125.9,
+    "value": 4082417.2,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 17,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3291",
+    "routeId": "RT-657",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-DE1B48CE",
+    "cargoType": "Electronics",
+    "priority": "medium",
+    "weight": 2838.7,
+    "value": 4965217.93,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 5,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3942",
+    "routeId": "RT-277",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-BEA15C38",
+    "cargoType": "Apparel",
+    "priority": "medium",
+    "weight": 2691.3,
+    "value": 2542457.39,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": "2026-04-11T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "active",
+        "arrivedAt": "2026-04-12T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 18.5204,
+      "lng": 73.8567
+    },
+    "currentStage": "warehouse",
+    "riskScore": 7,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9771",
+    "routeId": "RT-212",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-2216277B",
+    "cargoType": "Pharmaceuticals",
+    "priority": "medium",
+    "weight": 3036.8,
+    "value": 1537061.33,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": "2026-04-11T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 17.780621224247152,
+      "lng": 77.17443539514946
+    },
+    "currentStage": "in_transit",
+    "riskScore": 45,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-5562",
+    "routeId": "RT-735",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-B8D1921E",
+    "cargoType": "Apparel",
+    "priority": "high",
+    "weight": 2002.7,
+    "value": 1964200.85,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "jaipur_wh",
+        "nodeName": "Jaipur Regional Warehouse",
+        "status": "active",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 26.9124,
+      "lng": 75.7873
+    },
+    "currentStage": "warehouse",
+    "riskScore": 23,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-7390",
+    "routeId": "RT-492",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "jaipur_wh",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "jaipur_wh",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-2F93C70B",
+    "cargoType": "Electronics",
+    "priority": "low",
+    "weight": 3515.3,
+    "value": 2314739.24,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-10T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "lucknow_wh",
+        "nodeName": "Lucknow Regional Warehouse",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-11T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-11T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 22,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-8489",
+    "routeId": "RT-988",
+    "status": "at_manufacturer",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "lucknow_wh",
+      "bangalore_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "lucknow_wh",
+      "bangalore_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-C32A2203",
+    "cargoType": "Apparel",
+    "priority": "low",
+    "weight": 2205.2,
+    "value": 867593.44,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "active",
+        "arrivedAt": "2026-04-14T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 28.7041,
+      "lng": 77.1025
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 15,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3260",
+    "routeId": "RT-172",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "pune_wh",
+      "delhi_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-61A14C1C",
+    "cargoType": "Electronics",
+    "priority": "critical",
+    "weight": 694.6,
+    "value": 1680112.77,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": "2026-04-11T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "active",
+        "arrivedAt": "2026-04-12T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 17.385,
+      "lng": 78.4867
+    },
+    "currentStage": "warehouse",
+    "riskScore": 49,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-7061",
+    "routeId": "RT-125",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-8DD2639F",
+    "cargoType": "Electronics",
+    "priority": "medium",
+    "weight": 3315.9,
+    "value": 1463350.72,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 42,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-5126",
+    "routeId": "RT-475",
+    "status": "at_manufacturer",
+    "isRerouted": true,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-F7662682",
+    "cargoType": "Pharmaceuticals",
+    "priority": "low",
+    "weight": 1904.7,
+    "value": 2289802.92,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-10T14:30:15.551259Z",
+        "departedAt": "2026-04-10T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T00:30:15.551259Z",
+        "departedAt": "2026-04-11T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "active",
+        "arrivedAt": "2026-04-11T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.5726,
+      "lng": 88.3639
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 31,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-7420",
+    "routeId": "RT-463",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "hyderabad_hub",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "hyderabad_hub",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-6C13DF1F",
+    "cargoType": "Auto Parts",
+    "priority": "medium",
+    "weight": 4579.9,
+    "value": 2508572.01,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T14:30:15.551259Z",
+        "departedAt": "2026-04-11T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "indore_hub",
+        "nodeName": "Indore Transit Center",
+        "status": "active",
+        "arrivedAt": "2026-04-12T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.7196,
+      "lng": 75.8577
+    },
+    "currentStage": "warehouse",
+    "riskScore": 24,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-2484",
+    "routeId": "RT-735",
+    "status": "at_warehouse",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "indore_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "indore_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-FE10E3BB",
+    "cargoType": "Apparel",
+    "priority": "low",
+    "weight": 347.4,
+    "value": 2201170.49,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "active",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 18.5204,
+      "lng": 73.8567
+    },
+    "currentStage": "warehouse",
+    "riskScore": 10,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-1305",
+    "routeId": "RT-454",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "bangalore_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-65F1A664",
+    "cargoType": "Apparel",
+    "priority": "low",
+    "weight": 165.3,
+    "value": 442917.37,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-10T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "indore_hub",
+        "nodeName": "Indore Transit Center",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-11T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-11T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 32,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-6353",
+    "routeId": "RT-373",
+    "status": "at_manufacturer",
+    "isRerouted": true,
+    "originalRoute": [
+      "mumbai_mfg",
+      "indore_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "indore_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-8E4D618E",
+    "cargoType": "Auto Parts",
+    "priority": "low",
+    "weight": 1205.0,
+    "value": 3894199.4,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-10T14:30:15.551259Z",
+        "departedAt": "2026-04-10T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T00:30:15.551259Z",
+        "departedAt": "2026-04-11T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "active",
+        "arrivedAt": "2026-04-11T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 28.7041,
+      "lng": 77.1025
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 13,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9090",
+    "routeId": "RT-187",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-766D08E0",
+    "cargoType": "Auto Parts",
+    "priority": "low",
+    "weight": 3368.5,
+    "value": 1776678.48,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-10T14:30:15.551259Z",
+        "departedAt": "2026-04-10T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-11T00:30:15.551259Z",
+        "departedAt": "2026-04-11T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": "2026-04-11T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-12T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 39,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9888",
+    "routeId": "RT-355",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-8ACD8CC4",
+    "cargoType": "Apparel",
+    "priority": "low",
+    "weight": 1853.1,
+    "value": 3771700.18,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "jaipur_wh",
+        "nodeName": "Jaipur Regional Warehouse",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": "2026-04-13T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "active",
+        "arrivedAt": "2026-04-13T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.5726,
+      "lng": 88.3639
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 31,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-8874",
+    "routeId": "RT-601",
+    "status": "at_distributor",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "jaipur_wh",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "jaipur_wh",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-BD8AF21C",
+    "cargoType": "Electronics",
+    "priority": "medium",
+    "weight": 734.4,
+    "value": 2974721.76,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.825564523066895,
+      "lng": 79.48427734933556
+    },
+    "currentStage": "in_transit",
+    "riskScore": 32,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-5832",
+    "routeId": "RT-966",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_mumbai"
+    ]
+  },
+  {
+    "id": "SHP-F0B9FD24",
+    "cargoType": "Electronics",
+    "priority": "critical",
+    "weight": 229.5,
+    "value": 3092030.41,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "active",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 21.1458,
+      "lng": 79.0882
+    },
+    "currentStage": "warehouse",
+    "riskScore": 67,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-1641",
+    "routeId": "RT-228",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "nagpur_hub",
+      "bangalore_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-16FBEEC9",
+    "cargoType": "Auto Parts",
+    "priority": "low",
+    "weight": 3213.0,
+    "value": 3919394.52,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T14:30:15.551259Z",
+        "departedAt": "2026-04-14T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "nagpur_hub",
+        "nodeName": "Nagpur Zero Mile Hub",
+        "status": "active",
+        "arrivedAt": "2026-04-15T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-16T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 21.1458,
+      "lng": 79.0882
+    },
+    "currentStage": "warehouse",
+    "riskScore": 37,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-2355",
+    "routeId": "RT-236",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "kolkata_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "nagpur_hub",
+      "kolkata_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-EF1EFD2E",
+    "cargoType": "Electronics",
+    "priority": "high",
+    "weight": 2768.8,
+    "value": 4574685.28,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "lucknow_wh",
+        "nodeName": "Lucknow Regional Warehouse",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 16.76911319713146,
+      "lng": 80.45161921786271
+    },
+    "currentStage": "in_transit",
+    "riskScore": 37,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3040",
+    "routeId": "RT-893",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "lucknow_wh",
+      "kolkata_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "lucknow_wh",
+      "kolkata_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-20974A75",
+    "cargoType": "FMCG",
+    "priority": "low",
+    "weight": 3227.5,
+    "value": 3017730.87,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "active",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "hyderabad_hub",
+        "nodeName": "Hyderabad Transit Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T05:30:15.551259Z"
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "currentStage": "manufacturer",
+    "riskScore": 35,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-6600",
+    "routeId": "RT-459",
+    "status": "at_manufacturer",
+    "isRerouted": true,
+    "originalRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "hyderabad_hub",
+      "delhi_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-2C75BEC0",
+    "cargoType": "Pharmaceuticals",
+    "priority": "critical",
+    "weight": 1091.3,
+    "value": 128263.77,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T14:30:15.551259Z",
+        "departedAt": "2026-04-14T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "patna_hub",
+        "nodeName": "Patna Transport Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-15T00:30:15.551259Z",
+        "departedAt": "2026-04-15T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "active",
+        "arrivedAt": "2026-04-15T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-16T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.5726,
+      "lng": 88.3639
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 81,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3418",
+    "routeId": "RT-790",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "kolkata_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "kolkata_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-D99A02F7",
+    "cargoType": "Apparel",
+    "priority": "low",
+    "weight": 2202.8,
+    "value": 4344233.15,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": "2026-04-13T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "active",
+        "arrivedAt": "2026-04-13T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 22.5726,
+      "lng": 88.3639
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 33,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9706",
+    "routeId": "RT-392",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-50060F83",
+    "cargoType": "Apparel",
+    "priority": "medium",
+    "weight": 2067.6,
+    "value": 4353815.96,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Park Street Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "jaipur_wh",
+        "nodeName": "Jaipur Regional Warehouse",
+        "status": "active",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_kolkata",
+        "nodeName": "Park Street Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 21.909323659362496,
+      "lng": 73.92969307325828
+    },
+    "currentStage": "in_transit",
+    "riskScore": 31,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-8733",
+    "routeId": "RT-231",
+    "status": "in_transit",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "jaipur_wh",
+      "kolkata_dc",
+      "retailer_kolkata"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "jaipur_wh",
+      "kolkata_dc",
+      "retailer_kolkata"
+    ]
+  },
+  {
+    "id": "SHP-C68A0A82",
+    "cargoType": "FMCG",
+    "priority": "low",
+    "weight": 1339.3,
+    "value": 2150915.56,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Indiranagar Electronics",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T14:30:15.551259Z",
+        "departedAt": "2026-04-13T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "patna_hub",
+        "nodeName": "Patna Transport Hub",
+        "status": "completed",
+        "arrivedAt": "2026-04-14T00:30:15.551259Z",
+        "departedAt": "2026-04-14T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "delhi_dc",
+        "nodeName": "Delhi NCR Mega DC",
+        "status": "active",
+        "arrivedAt": "2026-04-14T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_bangalore",
+        "nodeName": "Indiranagar Electronics",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-15T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 28.7041,
+      "lng": 77.1025
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 26,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3720",
+    "routeId": "RT-579",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "delhi_dc",
+      "retailer_bangalore"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "patna_hub",
+      "delhi_dc",
+      "retailer_bangalore"
+    ]
+  },
+  {
+    "id": "SHP-916ABE46",
+    "cargoType": "Pharmaceuticals",
+    "priority": "medium",
+    "weight": 2814.4,
+    "value": 4708498.61,
+    "manufacturer": "Mumbai Electronics Mfg",
+    "endCustomer": "Connaught Place Retail",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "mumbai_mfg",
+        "nodeName": "Mumbai Electronics Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "ahmedabad_wh",
+        "nodeName": "Ahmedabad Logistics Park",
+        "status": "active",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "kolkata_dc",
+        "nodeName": "Kolkata Eastern DC",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-13T15:30:15.551259Z"
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_delhi",
+        "nodeName": "Connaught Place Retail",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 23.0225,
+      "lng": 72.5714
+    },
+    "currentStage": "warehouse",
+    "riskScore": 8,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-3926",
+    "routeId": "RT-855",
+    "status": "at_warehouse",
+    "isRerouted": false,
+    "originalRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ],
+    "optimizedRoute": [
+      "mumbai_mfg",
+      "ahmedabad_wh",
+      "kolkata_dc",
+      "retailer_delhi"
+    ]
+  },
+  {
+    "id": "SHP-7B13B2F4",
+    "cargoType": "Pharmaceuticals",
+    "priority": "high",
+    "weight": 3539.5,
+    "value": 259202.21,
+    "manufacturer": "Chennai Auto Parts Mfg",
+    "endCustomer": "Bandra Retail Hub",
+    "journey": [
+      {
+        "stage": "manufacturer",
+        "nodeId": "chennai_mfg",
+        "nodeName": "Chennai Auto Parts Mfg",
+        "status": "completed",
+        "arrivedAt": "2026-04-12T14:30:15.551259Z",
+        "departedAt": "2026-04-12T16:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "warehouse",
+        "nodeId": "pune_wh",
+        "nodeName": "Pune Central Warehouse",
+        "status": "completed",
+        "arrivedAt": "2026-04-13T00:30:15.551259Z",
+        "departedAt": "2026-04-13T02:30:15.551259Z",
+        "eta": null
+      },
+      {
+        "stage": "distribution_center",
+        "nodeId": "bangalore_dc",
+        "nodeName": "Bangalore Tech DC",
+        "status": "active",
+        "arrivedAt": "2026-04-13T10:30:15.551259Z",
+        "departedAt": null,
+        "eta": null
+      },
+      {
+        "stage": "retailer",
+        "nodeId": "retailer_mumbai",
+        "nodeName": "Bandra Retail Hub",
+        "status": "pending",
+        "arrivedAt": null,
+        "departedAt": null,
+        "eta": "2026-04-14T01:30:15.551259Z"
+      }
+    ],
+    "currentPosition": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "currentStage": "distribution_center",
+    "riskScore": 42,
+    "lstmPrediction": 0.0,
+    "vehicleId": "TRK-9898",
+    "routeId": "RT-950",
+    "status": "at_distributor",
+    "isRerouted": false,
+    "originalRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ],
+    "optimizedRoute": [
+      "chennai_mfg",
+      "pune_wh",
+      "bangalore_dc",
+      "retailer_mumbai"
+    ]
+  }
+]

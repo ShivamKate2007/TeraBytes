@@ -1,0 +1,200 @@
+[
+  {
+    "id": "mumbai_mfg",
+    "name": "Mumbai Electronics Mfg",
+    "type": "manufacturer",
+    "lat": 19.0760,
+    "lng": 72.8777,
+    "capacity": 10000,
+    "currentLoad": 4500,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "chennai_mfg",
+    "name": "Chennai Auto Parts Mfg",
+    "type": "manufacturer",
+    "lat": 13.0827,
+    "lng": 80.2707,
+    "capacity": 8000,
+    "currentLoad": 5200,
+    "status": "operational",
+    "region": "South"
+  },
+  {
+    "id": "pune_wh",
+    "name": "Pune Central Warehouse",
+    "type": "warehouse",
+    "lat": 18.5204,
+    "lng": 73.8567,
+    "capacity": 15000,
+    "currentLoad": 8000,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "ahmedabad_wh",
+    "name": "Ahmedabad Logistics Park",
+    "type": "warehouse",
+    "lat": 23.0225,
+    "lng": 72.5714,
+    "capacity": 12000,
+    "currentLoad": 6000,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "nagpur_hub",
+    "name": "Nagpur Zero Mile Hub",
+    "type": "transport_hub",
+    "lat": 21.1458,
+    "lng": 79.0882,
+    "capacity": 20000,
+    "currentLoad": 11000,
+    "status": "operational",
+    "region": "Central"
+  },
+  {
+    "id": "indore_hub",
+    "name": "Indore Transit Center",
+    "type": "transport_hub",
+    "lat": 22.7196,
+    "lng": 75.8577,
+    "capacity": 10000,
+    "currentLoad": 4000,
+    "status": "operational",
+    "region": "Central"
+  },
+  {
+    "id": "hyderabad_hub",
+    "name": "Hyderabad Transit Hub",
+    "type": "transport_hub",
+    "lat": 17.3850,
+    "lng": 78.4867,
+    "capacity": 15000,
+    "currentLoad": 7500,
+    "status": "operational",
+    "region": "South"
+  },
+  {
+    "id": "delhi_dc",
+    "name": "Delhi NCR Mega DC",
+    "type": "distribution_center",
+    "lat": 28.7041,
+    "lng": 77.1025,
+    "capacity": 25000,
+    "currentLoad": 18000,
+    "status": "operational",
+    "region": "North"
+  },
+  {
+    "id": "bangalore_dc",
+    "name": "Bangalore Tech DC",
+    "type": "distribution_center",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "capacity": 20000,
+    "currentLoad": 12000,
+    "status": "operational",
+    "region": "South"
+  },
+  {
+    "id": "kolkata_dc",
+    "name": "Kolkata Eastern DC",
+    "type": "distribution_center",
+    "lat": 22.5726,
+    "lng": 88.3639,
+    "capacity": 15000,
+    "currentLoad": 9000,
+    "status": "operational",
+    "region": "East"
+  },
+  {
+    "id": "jaipur_wh",
+    "name": "Jaipur Regional Warehouse",
+    "type": "warehouse",
+    "lat": 26.9124,
+    "lng": 75.7873,
+    "capacity": 8000,
+    "currentLoad": 3000,
+    "status": "operational",
+    "region": "North"
+  },
+  {
+    "id": "lucknow_wh",
+    "name": "Lucknow Regional Warehouse",
+    "type": "warehouse",
+    "lat": 26.8467,
+    "lng": 80.9462,
+    "capacity": 8000,
+    "currentLoad": 4500,
+    "status": "operational",
+    "region": "North"
+  },
+  {
+    "id": "patna_hub",
+    "name": "Patna Transport Hub",
+    "type": "transport_hub",
+    "lat": 25.5941,
+    "lng": 85.1376,
+    "capacity": 7000,
+    "currentLoad": 2000,
+    "status": "operational",
+    "region": "East"
+  },
+  {
+    "id": "guwahati_hub",
+    "name": "Guwahati Gateway Hub",
+    "type": "transport_hub",
+    "lat": 26.1445,
+    "lng": 91.7362,
+    "capacity": 6000,
+    "currentLoad": 1500,
+    "status": "operational",
+    "region": "Northeast"
+  },
+  {
+    "id": "retailer_delhi",
+    "name": "Connaught Place Retail",
+    "type": "retailer",
+    "lat": 28.6304,
+    "lng": 77.2177,
+    "capacity": 1000,
+    "currentLoad": 800,
+    "status": "operational",
+    "region": "North"
+  },
+  {
+    "id": "retailer_mumbai",
+    "name": "Bandra Retail Hub",
+    "type": "retailer",
+    "lat": 19.0596,
+    "lng": 72.8295,
+    "capacity": 1000,
+    "currentLoad": 600,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "retailer_bangalore",
+    "name": "Indiranagar Electronics",
+    "type": "retailer",
+    "lat": 12.9784,
+    "lng": 77.6408,
+    "capacity": 1000,
+    "currentLoad": 750,
+    "status": "operational",
+    "region": "South"
+  },
+  {
+    "id": "retailer_kolkata",
+    "name": "Park Street Retail",
+    "type": "retailer",
+    "lat": 22.5528,
+    "lng": 88.3524,
+    "capacity": 1000,
+    "currentLoad": 400,
+    "status": "operational",
+    "region": "East"
+  }
+]

@@ -1,0 +1,393 @@
+/* ============================================
+   SIMULATOR STYLES
+   ============================================ */
+
+.simulator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.simulator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.simulator-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.simulator-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: var(--spacing-xs);
+}
+
+.simulator-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--spacing-md);
+  min-height: 460px;
+}
+
+.simulator-map-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--bg-glass-border);
+  position: relative;
+  min-height: 400px;
+}
+
+.simulator-map-overlay {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.simulator-mode-badge {
+  background: rgba(239, 68, 68, 0.9);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  animation: pulse 2s ease-in-out infinite;
+}
+.simulator-legend-chip {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--bg-glass-border);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.simulator-legend-chip.active {
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+}
+
+/* ---- Scenario Panel ---- */
+.scenario-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInRight 0.3s ease;
+}
+
+.scenario-panel-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--bg-glass-border);
+}
+
+.scenario-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.scenario-panel-body {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.scenario-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.scenario-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.scenario-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.scenario-type-btn {
+  appearance: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: var(--text-secondary);
+}
+
+.scenario-type-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.scenario-type-btn.selected {
+  border-color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-primary);
+}
+
+.scenario-type-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.scenario-type-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ---- Slider ---- */
+.scenario-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  outline: none;
+}
+
+.scenario-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.scenario-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ---- Run Simulation Button ---- */
+.btn-simulate {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.btn-simulate:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-simulate:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---- Route Comparison ---- */
+.route-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.route-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.route-card.original {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.route-card.optimized {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.route-card-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.route-card.original .route-card-label { color: var(--risk-critical); }
+.route-card.optimized .route-card-label { color: var(--risk-low); }
+
+.route-metric {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-xs) 0;
+  font-size: 0.85rem;
+}
+
+.route-metric-label { color: var(--text-secondary); }
+.route-metric-value { font-family: var(--font-mono); font-weight: 600; }
+.route-metric.path-row {
+  display: block;
+}
+.route-metric-value.path-value {
+  display: block;
+  margin-top: 4px;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+/* ---- Narrative Panel ---- */
+.narrative-panel {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.narrative-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.narrative-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---- Cascade Impact ---- */
+.cascade-impact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.cascade-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.cascade-row-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.cascade-row-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+/* ---- Loading Overlay ---- */
+.simulation-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  z-index: 20;
+  animation: fadeIn 0.2s ease;
+}
+
+.simulation-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--bg-elevated);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.simulation-loading-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.scenario-history-item {
+  width: 100%;
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+}
+.scenario-history-item.active {
+  border-color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.08);
+}
+.scenario-history-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.scenario-history-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.scenario-history-compare {
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.45);
+  padding: 10px;
+}
+
+@media (max-width: 1200px) {
+  .simulator-grid {
+    grid-template-columns: 1fr;
+  }
+}
