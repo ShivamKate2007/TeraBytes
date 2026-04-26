@@ -31,8 +31,8 @@ export default function RouteComparison({ result = null }) {
   const plans = result?.cascadeMetrics?.reroutePlans || []
   const actionable = plans
     .filter((plan) => !isBlockedPlan(plan))
-    .filter((plan) => plan?.status === 'recovery_reroute' || pathChanged(plan) || Number(plan?.addedDelayHrs || 0) > 0)
-  const displayPlans = (actionable.length ? actionable : plans).slice(0, 3)
+    .filter((plan) => pathChanged(plan) || Number(plan?.addedDelayHrs || 0) > 0 || plan?.status === 'rerouted' || plan?.status === 'rerouted_alt_destination')
+  const displayPlans = actionable.length ? actionable : plans
 
   return (
     <div className="card">
@@ -66,6 +66,16 @@ export default function RouteComparison({ result = null }) {
                     Recovery reroute from {plan?.recoveryFromNode || 'safe node'}
                   </div>
                 )}
+                {Array.isArray(plan?.roadViaNodes) && plan.roadViaNodes.length > 0 && (
+                  <div style={{ fontSize: 11, color: 'var(--accent-primary)', marginBottom: 6 }}>
+                    Road corridor via {plan.roadViaNodes.join(' → ')}; unload stops unchanged
+                  </div>
+                )}
+                {plan?.roadRerouteReason && (
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 6 }}>
+                    {plan.roadRerouteReason}
+                  </div>
+                )}
                 {destinationChanged(plan) && (
                   <div style={{ fontSize: 11, color: '#f59e0b', marginBottom: 6 }}>
                     Destination changed in simulation output
@@ -83,6 +93,12 @@ export default function RouteComparison({ result = null }) {
                     {isBlockedPlan(plan) ? 'N/A' : plan?.newDestinationNode || '--'}
                   </span>
                 </div>
+                {plan?.alternateDestinationNode && (
+                  <div className="route-metric">
+                    <span className="route-metric-label">Alt Destination</span>
+                    <span className="route-metric-value">{plan.alternateDestinationNode}</span>
+                  </div>
+                )}
                 <div className="route-metric">
                   <span className="route-metric-label">Added Delay</span>
                   <span className="route-metric-value">

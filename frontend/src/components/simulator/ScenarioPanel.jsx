@@ -10,6 +10,9 @@ function severityLabel(level) {
 export default function ScenarioPanel({
   scenario,
   selectedDisruption,
+  focusShipmentCount = 0,
+  focusShipments = [],
+  onClearFocus,
   hasResult = false,
   onChange,
   onRun,
@@ -96,6 +99,30 @@ export default function ScenarioPanel({
         <button type="button" className="btn-simulate" disabled={!canRun} onClick={onRun}>
           {isRunning ? 'Running simulation...' : '🚀 Run Simulation'}
         </button>
+        {focusShipmentCount > 0 && (
+          <div className="card" style={{ padding: '10px 12px' }}>
+            <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
+              Focus mode: {focusShipmentCount} shipment{focusShipmentCount > 1 ? 's' : ''} selected from Dashboard.
+            </div>
+            {focusShipments.length > 0 && (
+              <div style={{ marginTop: 8, display: 'grid', gap: 6 }}>
+                {focusShipments.slice(0, 3).map((shipment) => (
+                  <div key={shipment.id} style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+                    {shipment.id} • {shipment.currentStage || '--'} • {shipment.status || '--'}
+                  </div>
+                ))}
+              </div>
+            )}
+            <button
+              type="button"
+              className="btn btn-ghost"
+              style={{ marginTop: 8, width: '100%' }}
+              onClick={onClearFocus}
+            >
+              Clear focus
+            </button>
+          </div>
+        )}
         {(selectedDisruption?.nodeId || hasResult) && (
           <button
             type="button"
@@ -113,7 +140,7 @@ export default function ScenarioPanel({
             <span className="empty-state-icon">🎯</span>
             <span className="empty-state-title">Place a disruption first</span>
             <span className="empty-state-text">
-              Click on the map to select the nearest supply node for this simulation.
+              Click on the map to place disruption center and simulate impacted route segments.
             </span>
           </div>
         ) : (

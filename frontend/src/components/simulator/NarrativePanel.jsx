@@ -9,8 +9,8 @@ export default function NarrativePanel({ result = null, scenario = null, selecte
   const text = result?.executiveSummary
   const metrics = result?.cascadeMetrics
   const plans = metrics?.reroutePlans || []
-  const blocked = plans.filter((plan) => plan.status === 'blocked_at_disruption_node').length
-  const rerouted = plans.filter((plan) => plan.status === 'rerouted').length
+  const blocked = plans.filter((plan) => plan.status === 'blocked_at_disruption_node' || plan.status === 'no_alternative_path').length
+  const rerouted = plans.filter((plan) => ['rerouted', 'rerouted_same_path', 'rerouted_alt_destination'].includes(plan.status)).length
 
   return (
     <div className="narrative-panel">

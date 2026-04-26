@@ -66,9 +66,11 @@ class WeatherService:
                     self._cache[cache_key] = {"data": data, "expires_at": now + self._cache_ttl_seconds}
                     return data
         except Exception as e:
-            print(f"[WeatherService] Error: {e}")
+            err_msg = f"{type(e).__name__}: {e}" if str(e) else type(e).__name__
+            print(f"[WeatherService] Error fetching weather for ({lat},{lng}): {err_msg}")
             data = self._mock_weather(lat, lng, reason=type(e).__name__)
-            self._cache[cache_key] = {"data": data, "expires_at": now + self._cache_ttl_seconds}
+            # Cache failure result for longer to avoid spamming failed requests
+            self._cache[cache_key] = {"data": data, "expires_at": now + self._cache_ttl_seconds * 2}
             return data
 
     def _mock_weather(self, lat, lng, reason: str = "fallback"):

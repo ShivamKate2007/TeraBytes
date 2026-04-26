@@ -136,6 +136,9 @@ export default function Analytics() {
           <div className="chart-container">
             <DisruptionChart data={trends} loading={loading} />
           </div>
+          <p className="chart-card-subtitle" style={{ marginTop: 10 }}>
+            Higher spikes indicate recent incident clusters that may need proactive reroute planning.
+          </p>
         </div>
 
         <div className="chart-card">
@@ -148,6 +151,9 @@ export default function Analytics() {
           <div className="chart-container">
             <PerformanceChart data={performanceByPriority} loading={loading} />
           </div>
+          <p className="chart-card-subtitle" style={{ marginTop: 10 }}>
+            Lower score priorities are currently facing more delay exposure and should be monitored first.
+          </p>
         </div>
 
         <div className="chart-card">
@@ -160,6 +166,9 @@ export default function Analytics() {
           <div className="chart-container">
             <RouteRiskChart data={routeRiskDistribution} loading={loading} />
           </div>
+          <p className="chart-card-subtitle" style={{ marginTop: 10 }}>
+            Routes at the top have consistently higher risk and are best candidates for contingency plans.
+          </p>
         </div>
 
         <div className="chart-card">
@@ -172,6 +181,9 @@ export default function Analytics() {
           <div className="chart-container">
             <StageDelayChart data={stageDelayEstimate} loading={loading} />
           </div>
+          <p className="chart-card-subtitle" style={{ marginTop: 10 }}>
+            This estimates where delays are accumulating across stages using current shipment risk.
+          </p>
         </div>
       </div>
     </div>

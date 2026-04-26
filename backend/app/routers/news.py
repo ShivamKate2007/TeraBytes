@@ -14,16 +14,29 @@ async def get_news_headlines(
     Frontend should consume this endpoint instead of calling NewsAPI directly.
     """
     try:
-        articles = await news_service.get_regional_news(location)
+        payload = await news_service.get_regional_news_payload(location, limit=limit)
+        articles = payload.get("articles", [])
         headlines = []
         for article in articles[:limit]:
             headlines.append(
                 {
                     "title": article.get("title"),
                     "description": article.get("description"),
+                    "url": article.get("url"),
+                    "publishedAt": article.get("publishedAt"),
+                    "sourceName": article.get("sourceName"),
                     "location": location,
+                    "dataSource": payload.get("source"),
+                    "isMock": payload.get("isMock", False),
                 }
             )
-        return {"headlines": headlines, "count": len(headlines), "error": None}
+        return {
+            "headlines": headlines,
+            "count": len(headlines),
+            "source": payload.get("source"),
+            "query": payload.get("query"),
+            "isMock": payload.get("isMock", False),
+            "error": payload.get("error"),
+        }
     except Exception as exc:
         return {"headlines": [], "count": 0, "error": str(exc)}

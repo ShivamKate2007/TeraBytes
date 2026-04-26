@@ -36,6 +36,11 @@ function normalizeTimelineStatus(stageData, stageKey, currentStageKey) {
   return 'pending'
 }
 
+function formatLatLng(position) {
+  if (!position?.lat || !position?.lng) return '--'
+  return `${Number(position.lat).toFixed(3)}, ${Number(position.lng).toFixed(3)}`
+}
+
 export default function ShipmentDetail() {
   const { id } = useParams()
   const { isLoaded } = useJsApiLoader({
@@ -132,6 +137,17 @@ export default function ShipmentDetail() {
   const liveRisk = shipment.liveRisk || {}
   const risk = Math.round(Number(liveRisk.riskScore ?? shipment.riskScore) || 0)
 
+  const stageDescriptor = (stageKey, stageData) => {
+    if (stageKey === 'manufacturer') return shipment.manufacturer || stageData?.nodeName || stageData?.nodeId || '--'
+    if (stageKey === 'warehouse') return stageData?.nodeName || stageData?.nodeId || 'Warehouse location pending'
+    if (stageKey === 'in_transit') return shipment.currentStage === 'in_transit'
+      ? `Current location: ${formatLatLng(shipment.currentPosition)}`
+      : stageData?.currentLeg || 'Not in transit'
+    if (stageKey === 'distribution_center') return stageData?.nodeName || stageData?.nodeId || 'Distributor pending'
+    if (stageKey === 'retailer') return shipment.endCustomer || stageData?.nodeName || stageData?.nodeId || '--'
+    return stageData?.nodeName || stageData?.nodeId || '--'
+  }
+
   return (
     <div className="shipment-detail">
       <div className="shipment-detail-header">
@@ -153,6 +169,9 @@ export default function ShipmentDetail() {
             <div key={stage.key} className={`journey-timeline-step ${status}`}>
               <div className="journey-timeline-icon">{stage.icon}</div>
               <span className="journey-timeline-label">{stage.label}</span>
+              <span className="journey-timeline-time" style={{ opacity: 0.9 }}>
+                {stageDescriptor(stage.key, stageData)}
+              </span>
               <span className="journey-timeline-time">
                 {stageData?.arrivedAt ? new Date(stageData.arrivedAt).toLocaleString() : stageData?.eta ? `ETA ${new Date(stageData.eta).toLocaleString()}` : '--'}
               </span>

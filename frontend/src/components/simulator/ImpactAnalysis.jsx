@@ -3,8 +3,9 @@ export default function ImpactAnalysis({ result = null }) {
   const byCargo = metrics?.impactBreakdown?.byCargo || {}
   const byPriority = metrics?.impactBreakdown?.byPriority || {}
   const plans = metrics?.reroutePlans || []
-  const blockedCount = plans.filter((plan) => plan.status === 'blocked_at_disruption_node').length
-  const reroutedCount = plans.filter((plan) => plan.status === 'rerouted').length
+  const diagnostics = metrics?.diagnostics || []
+  const blockedCount = plans.filter((plan) => plan.status === 'blocked_at_disruption_node' || plan.status === 'no_alternative_path').length
+  const reroutedCount = plans.filter((plan) => ['rerouted', 'rerouted_same_path', 'rerouted_alt_destination'].includes(plan.status)).length
 
   return (
     <div className="card">
@@ -55,6 +56,19 @@ export default function ImpactAnalysis({ result = null }) {
                 : '--'}
             </div>
           </div>
+          {diagnostics.length > 0 && (
+            <div className="cascade-row" style={{ alignItems: 'flex-start' }}>
+              <div className="cascade-row-label">🧪 Simulator Diagnostics</div>
+              <div className="cascade-row-value" style={{ textAlign: 'right', whiteSpace: 'normal' }}>
+                {diagnostics.slice(0, 3).map((diag) => (
+                  <div key={diag.shipmentId}>
+                    {diag.shipmentId}: {diag.affected ? `affected (${diag.hitType || 'hit'})` : `not affected (${diag.hitType || 'none'})`}
+                    {diag.minSegmentKm != null ? `, seg ${diag.minSegmentKm}km` : ''}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

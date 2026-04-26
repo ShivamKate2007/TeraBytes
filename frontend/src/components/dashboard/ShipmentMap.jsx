@@ -75,6 +75,7 @@ export default function ShipmentMap({
   edges = [],
   shipments = [],
   disruptions = [],
+  reroutePreview = null,
 }) {
   const { isLoaded } = useJsApiLoader({
     id: 'ssc-map',
@@ -338,9 +339,107 @@ export default function ShipmentMap({
             </div>
           </InfoWindowF>
         )}
+
+        {/* Reroute Preview: Original path (red dashed — real road geometry) */}
+        {reroutePreview?.originalCoords?.length > 1 && (
+          <PolylineF
+            path={reroutePreview.originalCoords.map((c) => ({ lat: c.lat, lng: c.lng }))}
+            options={{
+              strokeColor: '#ef4444',
+              strokeOpacity: 0,
+              strokeWeight: 0,
+              icons: [{
+                icon: {
+                  path: 'M 0,-1 0,1',
+                  strokeOpacity: 0.85,
+                  strokeColor: '#ef4444',
+                  strokeWeight: 3,
+                  scale: 3,
+                },
+                offset: '0',
+                repeat: '12px',
+              }],
+            }}
+          />
+        )}
+
+        {/* Reroute Preview: Suggested bypass path (green solid — real road geometry) */}
+        {reroutePreview?.suggestedCoords?.length > 1 && (
+          <PolylineF
+            path={reroutePreview.suggestedCoords.map((c) => ({ lat: c.lat, lng: c.lng }))}
+            options={{
+              strokeColor: '#10b981',
+              strokeOpacity: 0.9,
+              strokeWeight: 5,
+              zIndex: 10,
+            }}
+          />
+        )}
+
+        {/* Reroute Preview: Disruption location marker */}
+        {reroutePreview?.disruptionLocation?.lat && (
+          <CircleF
+            center={{
+              lat: reroutePreview.disruptionLocation.lat,
+              lng: reroutePreview.disruptionLocation.lng,
+            }}
+            radius={30000}
+            options={{
+              fillColor: '#f59e0b',
+              fillOpacity: 0.25,
+              strokeColor: '#f59e0b',
+              strokeOpacity: 0.9,
+              strokeWeight: 2,
+            }}
+          />
+        )}
       </GoogleMap>
 
-      {!shipments.length && (
+      {/* Reroute preview legend */}
+      {reroutePreview && (
+        <div
+          style={{
+            position: 'absolute',
+            left: 16,
+            top: 16,
+            background: 'rgba(15,23,42,0.92)',
+            border: '1px solid rgba(59,130,246,0.5)',
+            borderRadius: 10,
+            padding: '10px 14px',
+            fontSize: 12,
+            zIndex: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 4,
+          }}
+        >
+          <div style={{ fontWeight: 700, color: 'var(--accent-primary)', fontSize: 11 }}>
+            📍 Reroute Preview — {reroutePreview.shipmentId}
+          </div>
+          {reroutePreview.loading ? (
+            <div style={{ color: 'var(--text-muted)', fontSize: 11 }}>
+              ⏳ Tracing real road paths...
+            </div>
+          ) : (
+            <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                <span style={{
+                  width: 16, height: 3,
+                  background: 'repeating-linear-gradient(90deg, #ef4444 0 4px, transparent 4px 8px)',
+                  display: 'inline-block', borderRadius: 2
+                }} />
+                <span style={{ color: 'var(--text-secondary)' }}>Original</span>
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                <span style={{ width: 16, height: 3, background: '#10b981', display: 'inline-block', borderRadius: 2 }} />
+                <span style={{ color: 'var(--text-secondary)' }}>Suggested</span>
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {!shipments.length && !reroutePreview && (
         <div
           style={{
             position: 'absolute',
@@ -361,3 +460,4 @@ export default function ShipmentMap({
     </div>
   )
 }
+

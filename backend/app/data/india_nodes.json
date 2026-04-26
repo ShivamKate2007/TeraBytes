@@ -3,7 +3,7 @@
     "id": "mumbai_mfg",
     "name": "Mumbai Electronics Mfg",
     "type": "manufacturer",
-    "lat": 19.0760,
+    "lat": 19.076,
     "lng": 72.8777,
     "capacity": 10000,
     "currentLoad": 4500,
@@ -69,7 +69,7 @@
     "id": "hyderabad_hub",
     "name": "Hyderabad Transit Hub",
     "type": "transport_hub",
-    "lat": 17.3850,
+    "lat": 17.385,
     "lng": 78.4867,
     "capacity": 15000,
     "currentLoad": 7500,
@@ -196,5 +196,60 @@
     "currentLoad": 400,
     "status": "operational",
     "region": "East"
+  },
+  {
+    "id": "solapur_hub",
+    "name": "Solapur Junction Hub",
+    "type": "transport_hub",
+    "lat": 17.6599,
+    "lng": 75.9064,
+    "capacity": 8000,
+    "currentLoad": 3500,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "nashik_wh",
+    "name": "Nashik Industrial Warehouse",
+    "type": "warehouse",
+    "lat": 19.9975,
+    "lng": 73.7898,
+    "capacity": 9000,
+    "currentLoad": 4000,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "kolhapur_hub",
+    "name": "Kolhapur Transit Hub",
+    "type": "transport_hub",
+    "lat": 16.705,
+    "lng": 74.2433,
+    "capacity": 7000,
+    "currentLoad": 2500,
+    "status": "operational",
+    "region": "West"
+  },
+  {
+    "id": "aurangabad_hub",
+    "name": "Aurangabad Logistics Center",
+    "type": "transport_hub",
+    "lat": 19.8762,
+    "lng": 75.3433,
+    "capacity": 8000,
+    "currentLoad": 3000,
+    "status": "operational",
+    "region": "Central"
+  },
+  {
+    "id": "kota_hub",
+    "name": "Kota Transit Hub",
+    "type": "transport_hub",
+    "lat": 25.1814,
+    "lng": 75.8322,
+    "capacity": 8000,
+    "currentLoad": 3000,
+    "status": "operational",
+    "region": "North"
   }
 ]

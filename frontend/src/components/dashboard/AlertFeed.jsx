@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react'
 import { formatRelativeTime } from '../../utils/formatters'
 
 function sourceBadge(alert) {
@@ -9,19 +10,39 @@ function sourceBadge(alert) {
 }
 
 export default function AlertFeed({ alerts = [], loading = false }) {
+  const [dismissed, setDismissed] = useState([])
+  const visible = alerts.filter((a) => !dismissed.includes(a.id))
+
+  const handleDismiss = (id) => {
+    setDismissed((prev) => [...prev, id])
+  }
+
   return (
     <div className="alert-feed">
       <div className="alert-feed-header">
         <span className="alert-feed-title">Live Alert Feed</span>
+        {visible.length > 0 && (
+          <span style={{
+            background: 'var(--risk-critical)',
+            color: 'white',
+            borderRadius: 'var(--radius-full)',
+            padding: '2px 8px',
+            fontSize: 11,
+            fontWeight: 700,
+            marginLeft: 'auto',
+          }}>
+            {visible.length}
+          </span>
+        )}
       </div>
       <div className="alert-feed-list">
         {loading && <div style={{ color: 'var(--text-muted)' }}>Monitoring disruption signals...</div>}
-        {!loading && !alerts.length && (
+        {!loading && !visible.length && (
           <div style={{ color: 'var(--risk-low)' }}>No active alerts. Network lanes are stable.</div>
         )}
 
         {!loading &&
-          alerts.map((alert) => (
+          visible.map((alert) => (
             <div
               key={alert.id}
               className={`alert-card severity-${alert.severity || 'high'}`}
@@ -41,7 +62,24 @@ export default function AlertFeed({ alerts = [], loading = false }) {
               )}
               <div className="alert-card-title">{alert.title}</div>
               <div className="alert-card-text">{alert.message}</div>
-              <div className="alert-card-time">{formatRelativeTime(alert.timestamp)}</div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 6 }}>
+                <div className="alert-card-time">{formatRelativeTime(alert.timestamp)}</div>
+                <button
+                  type="button"
+                  onClick={() => handleDismiss(alert.id)}
+                  style={{
+                    background: 'none',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    color: 'var(--text-muted)',
+                    fontSize: 11,
+                    padding: '2px 8px',
+                    borderRadius: 'var(--radius-sm)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Dismiss
+                </button>
+              </div>
             </div>
           ))}
       </div>

@@ -53,6 +53,15 @@ export default function Simulator() {
   const [showShipments, setShowShipments] = useState(true)
   const [showOriginalPaths, setShowOriginalPaths] = useState(true)
   const [showOptimizedPaths, setShowOptimizedPaths] = useState(true)
+  const [focusShipmentIds, setFocusShipmentIds] = useState(() => {
+    try {
+      const raw = window.localStorage.getItem('ssc.selectedShipmentIds')
+      const parsed = raw ? JSON.parse(raw) : []
+      return Array.isArray(parsed) ? parsed : []
+    } catch {
+      return []
+    }
+  })
 
   useEffect(() => {
     let isActive = true
@@ -119,11 +128,16 @@ export default function Simulator() {
         disruptedNodeId: selectedDisruption.nodeId,
         eventType: scenario.type,
         severity: getSeverity(scenario.severityLevel),
+        disruptionLat: selectedDisruption.lat,
+        disruptionLng: selectedDisruption.lng,
+        impactRadiusKm: scenario.radiusKm,
+        disruptionDurationHrs: scenario.durationHours,
+        focusShipmentIds: focusShipmentIds.length ? focusShipmentIds : undefined,
       }
       const result = await supplyChainApi.runSimulation(payload)
       setSimulationResult(result)
       const plans = result?.cascadeMetrics?.reroutePlans || []
-      const blocked = plans.filter((plan) => plan.status === 'blocked_at_disruption_node').length
+      const blocked = plans.filter((plan) => plan.status === 'blocked_at_disruption_node' || plan.status === 'no_alternative_path').length
       const now = new Date()
       const historyEntry = {
         id: `${now.getTime()}-${payload.disruptedNodeId}`,
@@ -148,6 +162,22 @@ export default function Simulator() {
     }
   }
 
+  const visibleShipments = useMemo(() => {
+    if (!focusShipmentIds.length) return shipments
+    return shipments.filter((shipment) => focusShipmentIds.includes(shipment.id))
+  }, [shipments, focusShipmentIds])
+
+  const focusShipmentDetails = useMemo(() => {
+    if (!focusShipmentIds.length) return []
+    return shipments
+      .filter((shipment) => focusShipmentIds.includes(shipment.id))
+      .map((shipment) => ({
+        id: shipment.id,
+        status: shipment.status,
+        currentStage: shipment.currentStage,
+      }))
+  }, [shipments, focusShipmentIds])
+
   return (
     <div className="simulator">
       <div className="simulator-header">
@@ -163,7 +193,7 @@ export default function Simulator() {
         <WhatIfMap
           nodes={nodes}
           edges={edges}
-          shipments={shipments}
+          shipments={visibleShipments}
           selectedDisruption={selectedDisruption}
           simulationResult={simulationResult}
           showShipments={showShipments}
@@ -179,6 +209,16 @@ export default function Simulator() {
         <ScenarioPanel
           scenario={scenario}
           selectedDisruption={selectedDisruption}
+          focusShipmentCount={focusShipmentIds.length}
+          focusShipments={focusShipmentDetails}
+          onClearFocus={() => {
+            setFocusShipmentIds([])
+            try {
+              window.localStorage.removeItem('ssc.selectedShipmentIds')
+            } catch {
+              // ignore storage errors
+            }
+          }}
           hasResult={Boolean(simulationResult)}
           onChange={handleScenarioChange}
           onRun={runSimulation}

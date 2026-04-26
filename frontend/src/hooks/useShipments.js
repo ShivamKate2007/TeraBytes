@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { supplyChainApi } from '../services/api'
 
 const POLL_INTERVAL_MS = 15000
@@ -12,6 +12,7 @@ export default function useShipments() {
   const [isReconnecting, setIsReconnecting] = useState(false)
   const [lastUpdated, setLastUpdated] = useState(null)
   const [isConnected, setIsConnected] = useState(true)
+  const lastGoodShipmentsRef = useRef([])
 
   useEffect(() => {
     let isActive = true
@@ -30,6 +31,7 @@ export default function useShipments() {
           throw new Error(payload.error)
         }
         setShipments(Array.isArray(payload.shipments) ? payload.shipments : [])
+        lastGoodShipmentsRef.current = Array.isArray(payload.shipments) ? payload.shipments : []
         setError(null)
         setRetryCount(0)
         setIsReconnecting(false)
@@ -40,6 +42,8 @@ export default function useShipments() {
         if (!isActive) return
         setError(err)
         setIsConnected(false)
+        // Keep showing last known data instead of resetting dashboard to misleading zeros
+        setShipments(lastGoodShipmentsRef.current)
         setRetryCount((prev) => {
           const next = prev + 1
           const delay = Math.min(POLL_INTERVAL_MS * (2 ** prev), MAX_BACKOFF_MS)

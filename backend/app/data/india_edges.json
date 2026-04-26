@@ -1,34 +1,502 @@
 [
-  { "id": "e_mum_pune", "fromNode": "mumbai_mfg", "toNode": "pune_wh", "distance": 150, "avgTransitTime": 3.5, "cost": 4500, "mode": "road", "riskFactor": 0.2 },
-  { "id": "e_mum_ahd", "fromNode": "mumbai_mfg", "toNode": "ahmedabad_wh", "distance": 520, "avgTransitTime": 10.0, "cost": 15000, "mode": "road", "riskFactor": 0.3 },
-  { "id": "e_che_blr", "fromNode": "chennai_mfg", "toNode": "bangalore_dc", "distance": 350, "avgTransitTime": 7.0, "cost": 10000, "mode": "road", "riskFactor": 0.2 },
-  { "id": "e_che_hyd", "fromNode": "chennai_mfg", "toNode": "hyderabad_hub", "distance": 630, "avgTransitTime": 12.0, "cost": 18000, "mode": "road", "riskFactor": 0.4 },
-  { "id": "e_pune_blr", "fromNode": "pune_wh", "toNode": "bangalore_dc", "distance": 840, "avgTransitTime": 16.0, "cost": 25000, "mode": "road", "riskFactor": 0.4 },
-  { "id": "e_pune_hyd", "fromNode": "pune_wh", "toNode": "hyderabad_hub", "distance": 560, "avgTransitTime": 11.0, "cost": 16000, "mode": "road", "riskFactor": 0.3 },
-  { "id": "e_pune_nag", "fromNode": "pune_wh", "toNode": "nagpur_hub", "distance": 710, "avgTransitTime": 14.0, "cost": 21000, "mode": "road", "riskFactor": 0.3 },
-  { "id": "e_ahd_ind", "fromNode": "ahmedabad_wh", "toNode": "indore_hub", "distance": 390, "avgTransitTime": 8.0, "cost": 12000, "mode": "road", "riskFactor": 0.2 },
-  { "id": "e_ahd_jai", "fromNode": "ahmedabad_wh", "toNode": "jaipur_wh", "distance": 680, "avgTransitTime": 13.0, "cost": 20000, "mode": "road", "riskFactor": 0.4 },
-  { "id": "e_ind_nag", "fromNode": "indore_hub", "toNode": "nagpur_hub", "distance": 450, "avgTransitTime": 9.0, "cost": 13500, "mode": "road", "riskFactor": 0.3 },
-  { "id": "e_ind_luc", "fromNode": "indore_hub", "toNode": "lucknow_wh", "distance": 780, "avgTransitTime": 15.0, "cost": 23000, "mode": "road", "riskFactor": 0.5 },
-  { "id": "e_nag_hyd", "fromNode": "nagpur_hub", "toNode": "hyderabad_hub", "distance": 500, "avgTransitTime": 10.0, "cost": 15000, "mode": "road", "riskFactor": 0.3 },
-  { "id": "e_nag_kol", "fromNode": "nagpur_hub", "toNode": "kolkata_dc", "distance": 1130, "avgTransitTime": 22.0, "cost": 34000, "mode": "road", "riskFactor": 0.6 },
-  { "id": "e_nag_del", "fromNode": "nagpur_hub", "toNode": "delhi_dc", "distance": 1060, "avgTransitTime": 20.0, "cost": 32000, "mode": "road", "riskFactor": 0.5 },
-  { "id": "e_jai_del", "fromNode": "jaipur_wh", "toNode": "delhi_dc", "distance": 280, "avgTransitTime": 6.0, "cost": 8500, "mode": "road", "riskFactor": 0.2 },
-  { "id": "e_luc_del", "fromNode": "lucknow_wh", "toNode": "delhi_dc", "distance": 530, "avgTransitTime": 10.5, "cost": 16000, "mode": "road", "riskFactor": 0.3 },
-  { "id": "e_luc_pat", "fromNode": "lucknow_wh", "toNode": "patna_hub", "distance": 510, "avgTransitTime": 10.0, "cost": 15500, "mode": "road", "riskFactor": 0.4 },
-  { "id": "e_pat_kol", "fromNode": "patna_hub", "toNode": "kolkata_dc", "distance": 580, "avgTransitTime": 12.0, "cost": 17500, "mode": "road", "riskFactor": 0.5 },
-  { "id": "e_pat_guw", "fromNode": "patna_hub", "toNode": "guwahati_hub", "distance": 900, "avgTransitTime": 18.0, "cost": 27000, "mode": "road", "riskFactor": 0.7 },
-  { "id": "e_kol_guw", "fromNode": "kolkata_dc", "toNode": "guwahati_hub", "distance": 980, "avgTransitTime": 20.0, "cost": 29000, "mode": "road", "riskFactor": 0.6 },
-  { "id": "e_hyd_blr", "fromNode": "hyderabad_hub", "toNode": "bangalore_dc", "distance": 570, "avgTransitTime": 11.0, "cost": 17000, "mode": "road", "riskFactor": 0.3 },
-  
-  { "id": "e_del_ret1", "fromNode": "delhi_dc", "toNode": "retailer_delhi", "distance": 30, "avgTransitTime": 1.5, "cost": 2000, "mode": "road", "riskFactor": 0.5 },
-  { "id": "e_mum_ret1", "fromNode": "mumbai_mfg", "toNode": "retailer_mumbai", "distance": 40, "avgTransitTime": 2.0, "cost": 2500, "mode": "road", "riskFactor": 0.6 },
-  { "id": "e_blr_ret1", "fromNode": "bangalore_dc", "toNode": "retailer_bangalore", "distance": 25, "avgTransitTime": 1.5, "cost": 2000, "mode": "road", "riskFactor": 0.5 },
-  { "id": "e_kol_ret1", "fromNode": "kolkata_dc", "toNode": "retailer_kolkata", "distance": 35, "avgTransitTime": 2.0, "cost": 2500, "mode": "road", "riskFactor": 0.5 },
-
-  { "id": "e_mum_del", "fromNode": "mumbai_mfg", "toNode": "delhi_dc", "distance": 1390, "avgTransitTime": 21.0, "cost": 30000, "mode": "rail", "riskFactor": 0.2 },
-  { "id": "e_che_kol", "fromNode": "chennai_mfg", "toNode": "kolkata_dc", "distance": 1670, "avgTransitTime": 28.0, "cost": 35000, "mode": "rail", "riskFactor": 0.3 },
-  { "id": "e_mum_che_sea", "fromNode": "mumbai_mfg", "toNode": "chennai_mfg", "distance": 2500, "avgTransitTime": 96.0, "cost": 15000, "mode": "sea", "riskFactor": 0.4 },
-  { "id": "e_del_kol_rail", "fromNode": "delhi_dc", "toNode": "kolkata_dc", "distance": 1520, "avgTransitTime": 24.0, "cost": 28000, "mode": "rail", "riskFactor": 0.2 },
-  { "id": "e_pune_del", "fromNode": "pune_wh", "toNode": "delhi_dc", "distance": 1440, "avgTransitTime": 26.0, "cost": 40000, "mode": "road", "riskFactor": 0.4 }
+  {
+    "id": "e_mum_pune",
+    "fromNode": "mumbai_mfg",
+    "toNode": "pune_wh",
+    "distance": 150,
+    "avgTransitTime": 3.5,
+    "cost": 4500,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_mum_ahd",
+    "fromNode": "mumbai_mfg",
+    "toNode": "ahmedabad_wh",
+    "distance": 520,
+    "avgTransitTime": 10.0,
+    "cost": 15000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_che_blr",
+    "fromNode": "chennai_mfg",
+    "toNode": "bangalore_dc",
+    "distance": 350,
+    "avgTransitTime": 7.0,
+    "cost": 10000,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_che_hyd",
+    "fromNode": "chennai_mfg",
+    "toNode": "hyderabad_hub",
+    "distance": 630,
+    "avgTransitTime": 12.0,
+    "cost": 18000,
+    "mode": "road",
+    "riskFactor": 0.4
+  },
+  {
+    "id": "e_pune_blr",
+    "fromNode": "pune_wh",
+    "toNode": "bangalore_dc",
+    "distance": 840,
+    "avgTransitTime": 16.0,
+    "cost": 25000,
+    "mode": "road",
+    "riskFactor": 0.4
+  },
+  {
+    "id": "e_pune_hyd",
+    "fromNode": "pune_wh",
+    "toNode": "hyderabad_hub",
+    "distance": 560,
+    "avgTransitTime": 11.0,
+    "cost": 16000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_pune_nag",
+    "fromNode": "pune_wh",
+    "toNode": "nagpur_hub",
+    "distance": 710,
+    "avgTransitTime": 14.0,
+    "cost": 21000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_ahd_ind",
+    "fromNode": "ahmedabad_wh",
+    "toNode": "indore_hub",
+    "distance": 390,
+    "avgTransitTime": 8.0,
+    "cost": 12000,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_ahd_jai",
+    "fromNode": "ahmedabad_wh",
+    "toNode": "jaipur_wh",
+    "distance": 680,
+    "avgTransitTime": 13.0,
+    "cost": 20000,
+    "mode": "road",
+    "riskFactor": 0.4
+  },
+  {
+    "id": "e_ind_nag",
+    "fromNode": "indore_hub",
+    "toNode": "nagpur_hub",
+    "distance": 450,
+    "avgTransitTime": 9.0,
+    "cost": 13500,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_ind_luc",
+    "fromNode": "indore_hub",
+    "toNode": "lucknow_wh",
+    "distance": 780,
+    "avgTransitTime": 15.0,
+    "cost": 23000,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_nag_hyd",
+    "fromNode": "nagpur_hub",
+    "toNode": "hyderabad_hub",
+    "distance": 500,
+    "avgTransitTime": 10.0,
+    "cost": 15000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_nag_kol",
+    "fromNode": "nagpur_hub",
+    "toNode": "kolkata_dc",
+    "distance": 1130,
+    "avgTransitTime": 22.0,
+    "cost": 34000,
+    "mode": "road",
+    "riskFactor": 0.6
+  },
+  {
+    "id": "e_nag_del",
+    "fromNode": "nagpur_hub",
+    "toNode": "delhi_dc",
+    "distance": 1060,
+    "avgTransitTime": 20.0,
+    "cost": 32000,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_jai_del",
+    "fromNode": "jaipur_wh",
+    "toNode": "delhi_dc",
+    "distance": 280,
+    "avgTransitTime": 6.0,
+    "cost": 8500,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_luc_del",
+    "fromNode": "lucknow_wh",
+    "toNode": "delhi_dc",
+    "distance": 530,
+    "avgTransitTime": 10.5,
+    "cost": 16000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_luc_pat",
+    "fromNode": "lucknow_wh",
+    "toNode": "patna_hub",
+    "distance": 510,
+    "avgTransitTime": 10.0,
+    "cost": 15500,
+    "mode": "road",
+    "riskFactor": 0.4
+  },
+  {
+    "id": "e_pat_kol",
+    "fromNode": "patna_hub",
+    "toNode": "kolkata_dc",
+    "distance": 580,
+    "avgTransitTime": 12.0,
+    "cost": 17500,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_pat_guw",
+    "fromNode": "patna_hub",
+    "toNode": "guwahati_hub",
+    "distance": 900,
+    "avgTransitTime": 18.0,
+    "cost": 27000,
+    "mode": "road",
+    "riskFactor": 0.7
+  },
+  {
+    "id": "e_kol_guw",
+    "fromNode": "kolkata_dc",
+    "toNode": "guwahati_hub",
+    "distance": 980,
+    "avgTransitTime": 20.0,
+    "cost": 29000,
+    "mode": "road",
+    "riskFactor": 0.6
+  },
+  {
+    "id": "e_hyd_blr",
+    "fromNode": "hyderabad_hub",
+    "toNode": "bangalore_dc",
+    "distance": 570,
+    "avgTransitTime": 11.0,
+    "cost": 17000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_del_ret1",
+    "fromNode": "delhi_dc",
+    "toNode": "retailer_delhi",
+    "distance": 30,
+    "avgTransitTime": 1.5,
+    "cost": 2000,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_mum_ret1",
+    "fromNode": "mumbai_mfg",
+    "toNode": "retailer_mumbai",
+    "distance": 40,
+    "avgTransitTime": 2.0,
+    "cost": 2500,
+    "mode": "road",
+    "riskFactor": 0.6
+  },
+  {
+    "id": "e_blr_ret1",
+    "fromNode": "bangalore_dc",
+    "toNode": "retailer_bangalore",
+    "distance": 25,
+    "avgTransitTime": 1.5,
+    "cost": 2000,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_kol_ret1",
+    "fromNode": "kolkata_dc",
+    "toNode": "retailer_kolkata",
+    "distance": 35,
+    "avgTransitTime": 2.0,
+    "cost": 2500,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_pune_del",
+    "fromNode": "pune_wh",
+    "toNode": "delhi_dc",
+    "distance": 1440,
+    "avgTransitTime": 26.0,
+    "cost": 40000,
+    "mode": "road",
+    "riskFactor": 0.4
+  },
+  {
+    "id": "e_mum_nashik",
+    "fromNode": "mumbai_mfg",
+    "toNode": "nashik_wh",
+    "distance": 167,
+    "avgTransitTime": 3.5,
+    "cost": 5000,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_nashik_pune",
+    "fromNode": "nashik_wh",
+    "toNode": "pune_wh",
+    "distance": 212,
+    "avgTransitTime": 4.5,
+    "cost": 6500,
+    "mode": "road",
+    "riskFactor": 0.25
+  },
+  {
+    "id": "e_nashik_aur",
+    "fromNode": "nashik_wh",
+    "toNode": "aurangabad_hub",
+    "distance": 190,
+    "avgTransitTime": 4.0,
+    "cost": 5800,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_nashik_ahd",
+    "fromNode": "nashik_wh",
+    "toNode": "ahmedabad_wh",
+    "distance": 420,
+    "avgTransitTime": 8.5,
+    "cost": 12500,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_aur_nag",
+    "fromNode": "aurangabad_hub",
+    "toNode": "nagpur_hub",
+    "distance": 480,
+    "avgTransitTime": 9.5,
+    "cost": 14500,
+    "mode": "road",
+    "riskFactor": 0.35
+  },
+  {
+    "id": "e_aur_pune",
+    "fromNode": "aurangabad_hub",
+    "toNode": "pune_wh",
+    "distance": 235,
+    "avgTransitTime": 5.0,
+    "cost": 7000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_pune_sol",
+    "fromNode": "pune_wh",
+    "toNode": "solapur_hub",
+    "distance": 255,
+    "avgTransitTime": 5.5,
+    "cost": 7500,
+    "mode": "road",
+    "riskFactor": 0.25
+  },
+  {
+    "id": "e_sol_hyd",
+    "fromNode": "solapur_hub",
+    "toNode": "hyderabad_hub",
+    "distance": 310,
+    "avgTransitTime": 6.5,
+    "cost": 9500,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_mum_kolhapur",
+    "fromNode": "mumbai_mfg",
+    "toNode": "kolhapur_hub",
+    "distance": 396,
+    "avgTransitTime": 7.5,
+    "cost": 11500,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_kolhapur_pune",
+    "fromNode": "kolhapur_hub",
+    "toNode": "pune_wh",
+    "distance": 230,
+    "avgTransitTime": 5.0,
+    "cost": 7000,
+    "mode": "road",
+    "riskFactor": 0.25
+  },
+  {
+    "id": "e_kolhapur_blr",
+    "fromNode": "kolhapur_hub",
+    "toNode": "bangalore_dc",
+    "distance": 580,
+    "avgTransitTime": 11.5,
+    "cost": 17500,
+    "mode": "road",
+    "riskFactor": 0.35
+  },
+  {
+    "id": "e_sol_blr",
+    "fromNode": "solapur_hub",
+    "toNode": "bangalore_dc",
+    "distance": 520,
+    "avgTransitTime": 10.5,
+    "cost": 15500,
+    "mode": "road",
+    "riskFactor": 0.35
+  },
+  {
+    "id": "e_guw_pat",
+    "fromNode": "guwahati_hub",
+    "toNode": "patna_hub",
+    "distance": 900,
+    "avgTransitTime": 18.0,
+    "cost": 27000,
+    "mode": "road",
+    "riskFactor": 0.7
+  },
+  {
+    "id": "e_guw_kol",
+    "fromNode": "guwahati_hub",
+    "toNode": "kolkata_dc",
+    "distance": 980,
+    "avgTransitTime": 20.0,
+    "cost": 29000,
+    "mode": "road",
+    "riskFactor": 0.6
+  },
+  {
+    "id": "e_del_luc",
+    "fromNode": "delhi_dc",
+    "toNode": "lucknow_wh",
+    "distance": 530,
+    "avgTransitTime": 10.5,
+    "cost": 16000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_del_jai",
+    "fromNode": "delhi_dc",
+    "toNode": "jaipur_wh",
+    "distance": 280,
+    "avgTransitTime": 6.0,
+    "cost": 8500,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_kol_pat",
+    "fromNode": "kolkata_dc",
+    "toNode": "patna_hub",
+    "distance": 580,
+    "avgTransitTime": 12.0,
+    "cost": 17500,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_blr_che",
+    "fromNode": "bangalore_dc",
+    "toNode": "chennai_mfg",
+    "distance": 350,
+    "avgTransitTime": 7.0,
+    "cost": 10000,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_blr_hyd",
+    "fromNode": "bangalore_dc",
+    "toNode": "hyderabad_hub",
+    "distance": 570,
+    "avgTransitTime": 11.0,
+    "cost": 17000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_hyd_nag",
+    "fromNode": "hyderabad_hub",
+    "toNode": "nagpur_hub",
+    "distance": 500,
+    "avgTransitTime": 10.0,
+    "cost": 15000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_del_nag",
+    "fromNode": "delhi_dc",
+    "toNode": "nagpur_hub",
+    "distance": 1060,
+    "avgTransitTime": 20.0,
+    "cost": 32000,
+    "mode": "road",
+    "riskFactor": 0.5
+  },
+  {
+    "id": "e_ahd_kota",
+    "fromNode": "ahmedabad_wh",
+    "toNode": "kota_hub",
+    "distance": 520,
+    "avgTransitTime": 9.5,
+    "cost": 14000,
+    "mode": "road",
+    "riskFactor": 0.3
+  },
+  {
+    "id": "e_kota_jai",
+    "fromNode": "kota_hub",
+    "toNode": "jaipur_wh",
+    "distance": 250,
+    "avgTransitTime": 4.5,
+    "cost": 7000,
+    "mode": "road",
+    "riskFactor": 0.2
+  },
+  {
+    "id": "e_jai_luc",
+    "fromNode": "jaipur_wh",
+    "toNode": "lucknow_wh",
+    "distance": 570,
+    "avgTransitTime": 10.0,
+    "cost": 16000,
+    "mode": "road",
+    "riskFactor": 0.3
+  }
 ]

@@ -1,12 +1,14 @@
-import { Fragment, useMemo } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import {
   CircleF,
   GoogleMap,
+  InfoWindowF,
   MarkerF,
   PolylineF,
   useJsApiLoader,
 } from '@react-google-maps/api'
 import { MAPS_CENTER, MAPS_DARK_STYLE, MAPS_ZOOM } from '../../utils/constants'
+import { supplyChainApi } from '../../services/api'
 
 const containerStyle = { width: '100%', height: '100%' }
 const libraries = ['visualization']
@@ -20,6 +22,10 @@ function pathFromNodeIds(nodeById, nodeIds = []) {
 
 function pathsDifferent(a = [], b = []) {
   return (a || []).join('>') !== (b || []).join('>')
+}
+
+function isDisplayableOptimizedStatus(status) {
+  return ['rerouted', 'road_rerouted', 'recovery_reroute', 'rerouted_alt_destination'].includes(status)
 }
 
 export default function WhatIfMap({
@@ -43,6 +49,8 @@ export default function WhatIfMap({
   })
 
   const nodeById = useMemo(() => new Map(nodes.map((node) => [node.id, node])), [nodes])
+  const [hoveredInfo, setHoveredInfo] = useState(null)
+  const [tracedReroutes, setTracedReroutes] = useState([])
 
   const rerouteLines = useMemo(() => {
     const plans = simulationResult?.cascadeMetrics?.reroutePlans || []
@@ -51,15 +59,60 @@ export default function WhatIfMap({
         shipmentId: plan.shipmentId,
         status: plan.status,
         addedDelayHrs: Number(plan.addedDelayHrs || 0),
+        oldNodePath: plan.oldPath || [],
+        newNodePath: plan.newPath || [],
+        oldTracePath: Array.isArray(plan.oldTracePath) ? plan.oldTracePath : [],
+        newTracePath: Array.isArray(plan.newTracePath) ? plan.newTracePath : [],
         oldPath: pathFromNodeIds(nodeById, plan.oldPath || []),
         newPath: pathFromNodeIds(nodeById, plan.newPath || []),
       }))
       .filter((entry) => entry.oldPath.length > 1 || entry.newPath.length > 1)
       .filter((entry) => {
         const changed = pathsDifferent(entry.oldPath, entry.newPath)
-        return changed || entry.status === 'recovery_reroute' || entry.addedDelayHrs > 0
+        return changed || entry.status === 'rerouted' || entry.addedDelayHrs > 0
       })
   }, [simulationResult, nodeById])
+
+  useEffect(() => {
+    let isActive = true
+    const loadTracedPaths = async () => {
+      if (!rerouteLines.length) {
+        if (isActive) setTracedReroutes([])
+        return
+      }
+
+      const resolved = await Promise.all(
+        rerouteLines.map(async (line) => {
+          const oldTraceRes =
+            line.oldTracePath.length > 1
+              ? { path: line.oldTracePath }
+              : line.oldPath.length > 1
+              ? await supplyChainApi.traceRoute(line.oldPath)
+              : { path: [] }
+          const newTraceRes =
+            line.newTracePath.length > 1
+              ? { path: line.newTracePath }
+              : isDisplayableOptimizedStatus(line.status) && line.newPath.length > 1
+              ? await supplyChainApi.traceRoute(line.newPath)
+              : { path: [] }
+          return {
+            ...line,
+            oldTracePath: Array.isArray(oldTraceRes.path) && oldTraceRes.path.length > 1 ? oldTraceRes.path : line.oldPath,
+            newTracePath: isDisplayableOptimizedStatus(line.status)
+              ? (Array.isArray(newTraceRes.path) && newTraceRes.path.length > 1 ? newTraceRes.path : line.newPath)
+              : [],
+          }
+        }),
+      )
+      if (!isActive) return
+      setTracedReroutes(resolved)
+    }
+
+    loadTracedPaths()
+    return () => {
+      isActive = false
+    }
+  }, [rerouteLines])
 
   if (loadError) {
     return (
@@ -189,11 +242,21 @@ export default function WhatIfMap({
           </>
         )}
 
-        {rerouteLines.map((line) => (
+        {(tracedReroutes.length ? tracedReroutes : rerouteLines).map((line) => (
           <Fragment key={line.shipmentId}>
-            {showOriginalPaths && line.oldPath.length > 1 && (
+            {showOriginalPaths && (line.oldTracePath || line.oldPath).length > 1 && (
               <PolylineF
-                path={line.oldPath}
+                path={line.oldTracePath || line.oldPath}
+                onMouseOver={(event) => {
+                  const latLng = event.latLng?.toJSON?.()
+                  if (!latLng) return
+                  setHoveredInfo({
+                    position: latLng,
+                    title: `Original route • ${line.shipmentId}`,
+                    subtitle: 'Impacted pre-disruption path',
+                  })
+                }}
+                onMouseOut={() => setHoveredInfo(null)}
                 options={{
                   strokeColor: '#ef4444',
                   strokeOpacity: 0.55,
@@ -201,9 +264,19 @@ export default function WhatIfMap({
                 }}
               />
             )}
-            {showOptimizedPaths && line.newPath.length > 1 && (
+            {showOptimizedPaths && (line.newTracePath || line.newPath).length > 1 && (
               <PolylineF
-                path={line.newPath}
+                path={line.newTracePath || line.newPath}
+                onMouseOver={(event) => {
+                  const latLng = event.latLng?.toJSON?.()
+                  if (!latLng) return
+                  setHoveredInfo({
+                    position: latLng,
+                    title: `Optimized route • ${line.shipmentId}`,
+                    subtitle: 'Rerouted path from same shipment origin context',
+                  })
+                }}
+                onMouseOut={() => setHoveredInfo(null)}
                 options={{
                   strokeColor: '#10b981',
                   strokeOpacity: 0.9,
@@ -213,6 +286,15 @@ export default function WhatIfMap({
             )}
           </Fragment>
         ))}
+
+        {hoveredInfo?.position && (
+          <InfoWindowF position={hoveredInfo.position} onCloseClick={() => setHoveredInfo(null)}>
+            <div style={{ minWidth: 220, color: '#111827' }}>
+              <div style={{ fontWeight: 700, marginBottom: 4 }}>{hoveredInfo.title}</div>
+              <div style={{ fontSize: 12 }}>{hoveredInfo.subtitle}</div>
+            </div>
+          </InfoWindowF>
+        )}
 
       </GoogleMap>
     </div>

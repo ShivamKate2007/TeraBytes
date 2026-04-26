@@ -14,7 +14,7 @@ export const supplyChainApi = {
       return await fetchJson('/shipments');
     } catch (error) {
       console.error('API Error (getShipments):', error);
-      return { shipments: [], count: 0 };
+      return { shipments: [], count: 0, error: error.message };
     }
   },
 
@@ -54,7 +54,7 @@ export const supplyChainApi = {
       return await fetchJson('/disruptions');
     } catch (error) {
       console.error('API Error (getDisruptions):', error);
-      return { disruptions: [], count: 0 };
+      return { disruptions: [], count: 0, error: error.message };
     }
   },
 
@@ -112,6 +112,41 @@ export const supplyChainApi = {
     } catch (error) {
       console.error('API Error (getNewsHeadlines):', error);
       return { headlines: [], count: 0, error: error.message };
+    }
+  },
+
+  fastForward: async (hours = 1) => {
+    try {
+      return await fetchJson('/shipments/fast-forward', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ hours }),
+      });
+    } catch (error) {
+      console.error('API Error (fastForward):', error);
+      return { success: false, error: error.message };
+    }
+  },
+
+  getRerouteSuggestions: async () => {
+    try {
+      return await fetchJson('/disruptions/reroute-suggestions');
+    } catch (error) {
+      console.error('API Error (getRerouteSuggestions):', error);
+      return { suggestions: [], count: 0, error: error.message };
+    }
+  },
+
+  applyReroute: async (shipmentId, newRoute, disruptionId = null) => {
+    try {
+      return await fetchJson(`/shipments/${shipmentId}/apply-reroute`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newRoute, disruptionId }),
+      });
+    } catch (error) {
+      console.error('API Error (applyReroute):', error);
+      return { applied: false, error: error.message };
     }
   },
 };
