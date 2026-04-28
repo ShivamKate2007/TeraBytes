@@ -1,4 +1,5 @@
 import os
+import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 from app.config import settings
@@ -10,6 +11,16 @@ class FirebaseService:
     def initialize(self):
         """Initialize Firebase Admin SDK"""
         if not firebase_admin._apps:
+            if settings.FIREBASE_SERVICE_ACCOUNT_JSON:
+                try:
+                    service_account_info = json.loads(settings.FIREBASE_SERVICE_ACCOUNT_JSON)
+                    cred = credentials.Certificate(service_account_info)
+                    firebase_admin.initialize_app(cred)
+                    print("[INFO] Firebase initialized with service account JSON.")
+                    return
+                except Exception as e:
+                    print(f"[ERROR] Could not initialize Firebase from JSON env: {e}")
+
             if settings.FIREBASE_SERVICE_ACCOUNT and os.path.exists(settings.FIREBASE_SERVICE_ACCOUNT):
                 cred = credentials.Certificate(settings.FIREBASE_SERVICE_ACCOUNT)
                 firebase_admin.initialize_app(cred)

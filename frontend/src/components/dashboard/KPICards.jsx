@@ -1,12 +1,14 @@
 import AnimatedCounter from '../common/AnimatedCounter'
 
+const HIGH_RISK_MIN_SCORE = 56
+
 function computeMetrics(shipments) {
   if (!shipments.length) {
     return { active: 0, atRisk: 0, avgRisk: 0, onTimeRate: 0 }
   }
 
   const active = shipments.length
-  const atRisk = shipments.filter((item) => Number(item.riskScore) >= 70 || item.isCritical).length
+  const atRisk = shipments.filter((item) => Number(item.riskScore) >= HIGH_RISK_MIN_SCORE || item.isCritical).length
   const avgRisk = shipments.reduce((sum, item) => sum + (Number(item.riskScore) || 0), 0) / active
   const onTimeRate = Math.max(0, 100 - (atRisk / active) * 100)
 

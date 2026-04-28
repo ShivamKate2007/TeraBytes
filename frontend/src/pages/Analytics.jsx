@@ -3,7 +3,9 @@ import DisruptionChart from '../components/analytics/DisruptionChart'
 import PerformanceChart from '../components/analytics/PerformanceChart'
 import RouteRiskChart from '../components/analytics/RouteRiskChart'
 import StageDelayChart from '../components/analytics/StageDelayChart'
+import RoleWorkspaceBanner from '../components/common/RoleWorkspaceBanner'
 import { supplyChainApi } from '../services/api'
+import { useAuth } from '../context/AuthContext'
 
 const STAGE_DELAY_WEIGHT = {
   manufacturer: 0.3,
@@ -24,9 +26,11 @@ function routeKey(shipment) {
 }
 
 export default function Analytics() {
+  const { currentUser } = useAuth()
   const [shipments, setShipments] = useState([])
   const [kpis, setKpis] = useState(null)
   const [trends, setTrends] = useState([])
+  const [trendExplanation, setTrendExplanation] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -44,6 +48,7 @@ export default function Analytics() {
         setShipments(Array.isArray(shipmentPayload.shipments) ? shipmentPayload.shipments : [])
         setKpis(kpiPayload || null)
         setTrends(Array.isArray(trendPayload.trends) ? trendPayload.trends : [])
+        setTrendExplanation(trendPayload.explanation || '')
       } finally {
         if (isActive) setLoading(false)
       }
@@ -55,7 +60,7 @@ export default function Analytics() {
       isActive = false
       clearInterval(interval)
     }
-  }, [])
+  }, [currentUser?.id])
 
   const performanceByPriority = useMemo(() => {
     const bucket = {}
@@ -113,6 +118,7 @@ export default function Analytics() {
 
   return (
     <div className="analytics">
+      <RoleWorkspaceBanner compact />
       <div className="analytics-header">
         <h2 className="analytics-title">📈 Supply Chain Analytics</h2>
         {kpis && (
@@ -124,6 +130,23 @@ export default function Analytics() {
           </div>
         )}
       </div>
+
+      {kpis?.explanations?.length > 0 && (
+        <div className="analytics-insight-card">
+          <div>
+            <span className="analytics-insight-kicker">Role-scoped intelligence</span>
+            <h3>What this analytics view means</h3>
+          </div>
+          <div className="analytics-insight-grid">
+            {kpis.explanations.map((item) => <p key={item}>{item}</p>)}
+          </div>
+          {kpis.recommendations?.length > 0 && (
+            <div className="analytics-recommendations">
+              {kpis.recommendations.map((item) => <span key={item}>{item}</span>)}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="analytics-grid">
         <div className="chart-card">
@@ -137,7 +160,9 @@ export default function Analytics() {
             <DisruptionChart data={trends} loading={loading} />
           </div>
           <p className="chart-card-subtitle" style={{ marginTop: 10 }}>
-            Higher spikes indicate recent incident clusters that may need proactive reroute planning.
+            {kpis?.scopeRole ? `For ${String(kpis.scopeRole).replaceAll('_', ' ')}, ` : ''}
+            higher spikes indicate recent incident clusters that may need proactive reroute planning.
+            {trendExplanation ? ` ${trendExplanation}` : ''}
           </p>
         </div>
 

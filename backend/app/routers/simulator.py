@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional, List
 from app.services.firebase_service import firebase_service
@@ -6,6 +6,8 @@ from app.services.cascade_analyzer import cascade_analyzer
 from app.services.gemini_service import gemini_service
 from app.services.route_geometry_service import route_geometry_service
 from app.services.route_optimizer import route_optimizer
+from app.services.auth_service import get_current_user
+from app.services.access_control import can_run_simulator, require_allowed, scope_shipments
 
 router = APIRouter()
 
@@ -294,8 +296,9 @@ async def _enrich_plan_times_with_directions(cascade_results: dict) -> dict:
     return cascade_results
 
 @router.post("/simulator/what-if")
-async def run_what_if(request: WhatIfRequest):
+async def run_what_if(request: WhatIfRequest, current_user: dict = Depends(get_current_user)):
     """Run what-if scenario → cascade analysis + reroutes + narrative"""
+    require_allowed(can_run_simulator(current_user), "This role cannot run the what-if simulator")
     try:
         db = firebase_service.db
         if not db:
@@ -313,7 +316,7 @@ async def run_what_if(request: WhatIfRequest):
         
         # 1. Fetch all active shipments currently traversing the network
         docs = db.collection("shipments").stream()
-        all_shipments = [doc.to_dict() for doc in docs]
+        all_shipments = scope_shipments(current_user, [doc.to_dict() for doc in docs])
         if request.focusShipmentIds:
             focus = set(request.focusShipmentIds)
             all_shipments = [shipment for shipment in all_shipments if shipment.get("id") in focus]
@@ -349,9 +352,16 @@ async def run_what_if(request: WhatIfRequest):
             "scenario": request.dict(),
             "cascadeMetrics": cascade_results,
             "executiveSummary": narrative,
+            "viewer": {
+                "id": current_user.get("id"),
+                "role": current_user.get("role"),
+                "roleLabel": current_user.get("roleLabel"),
+            },
             "error": None,
         }
         
+    except HTTPException:
+        raise
     except Exception as e:
         print(f"[API ERROR] simulator: {e}")
         return {

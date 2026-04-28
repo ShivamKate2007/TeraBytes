@@ -44,6 +44,61 @@
   font-family: var(--font-mono);
 }
 
+.analytics-insight-card {
+  display: grid;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border: 1px solid rgba(16, 185, 129, 0.24);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 5% 0%, rgba(16, 185, 129, 0.14), transparent 30%),
+    var(--bg-secondary);
+}
+
+.analytics-insight-kicker {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  color: var(--risk-low);
+  background: rgba(16, 185, 129, 0.1);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.analytics-insight-card h3 {
+  margin-top: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.analytics-insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.analytics-insight-grid p,
+.analytics-recommendations span {
+  margin: 0;
+  padding: var(--spacing-md);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  background: rgba(15, 23, 42, 0.52);
+}
+
+.analytics-recommendations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.analytics-recommendations span {
+  color: var(--accent-primary);
+  font-size: 0.82rem;
+}
+
 .chart-card {
   background: var(--bg-secondary);
   border: 1px solid var(--bg-glass-border);
@@ -80,6 +135,10 @@
 
 @media (max-width: 1200px) {
   .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-insight-grid {
     grid-template-columns: 1fr;
   }
 }

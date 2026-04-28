@@ -17,6 +17,7 @@ export default function useShipments() {
   useEffect(() => {
     let isActive = true
     let timeoutId = null
+    let userChangeHandler = null
 
     const scheduleNext = (delayMs) => {
       if (!isActive) return
@@ -56,11 +57,19 @@ export default function useShipments() {
       }
     }
 
+    userChangeHandler = () => {
+      clearTimeout(timeoutId)
+      setLoading(true)
+      fetchShipments()
+    }
+    window.addEventListener('ssc:user-changed', userChangeHandler)
+
     fetchShipments()
 
     return () => {
       isActive = false
       clearTimeout(timeoutId)
+      if (userChangeHandler) window.removeEventListener('ssc:user-changed', userChangeHandler)
     }
   }, [])
 

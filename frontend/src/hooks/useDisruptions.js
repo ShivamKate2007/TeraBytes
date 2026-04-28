@@ -16,6 +16,7 @@ export default function useDisruptions() {
   useEffect(() => {
     let isActive = true
     let timeoutId = null
+    let userChangeHandler = null
 
     const scheduleNext = (delayMs) => {
       if (!isActive) return
@@ -52,11 +53,19 @@ export default function useDisruptions() {
       }
     }
 
+    userChangeHandler = () => {
+      clearTimeout(timeoutId)
+      setLoading(true)
+      fetchDisruptions()
+    }
+    window.addEventListener('ssc:user-changed', userChangeHandler)
+
     fetchDisruptions()
 
     return () => {
       isActive = false
       clearTimeout(timeoutId)
+      if (userChangeHandler) window.removeEventListener('ssc:user-changed', userChangeHandler)
     }
   }, [])
 

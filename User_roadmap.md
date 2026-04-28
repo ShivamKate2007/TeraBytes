@@ -574,6 +574,15 @@ GET /api/auth/dev-users
 - Add contract lifecycle actions.
 - Link contract to shipment.
 - Add contract permissions.
+- Add carrier, vehicle, and driver profile foundation.
+- Add driver assignment and transporter reliability snapshots.
+- Add driver performance fields: on-time score, no-damage score, route compliance, incident-free score, completed trip history.
+- Scope driver visibility by role:
+  - Admin/Supply Chain Manager: all drivers.
+  - Carrier Partner: own drivers/fleet only.
+  - Driver: own profile only.
+  - Warehouse/Distributor/Retailer: drivers connected to related contracts/shipments.
+  - Analyst: read-only.
 
 ### Phase 9E: Notifications Backend
 

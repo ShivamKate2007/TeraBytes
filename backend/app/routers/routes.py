@@ -1,8 +1,10 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 from typing import List
 from app.services.firebase_service import firebase_service
 from app.services.route_geometry_service import route_geometry_service
+from app.services.auth_service import get_current_user
+from app.services.access_control import scope_graph
 
 router = APIRouter()
 
@@ -16,7 +18,7 @@ class RouteTraceRequest(BaseModel):
     points: List[LatLng] = Field(default_factory=list)
 
 @router.get("/routes/graph")
-async def get_route_graph():
+async def get_route_graph(current_user: dict = Depends(get_current_user)):
     """
     Get supply-chain topology only.
 
@@ -31,8 +33,15 @@ async def get_route_graph():
         
         nodes = [doc.to_dict() for doc in db.collection("nodes").stream()]
         edges = [doc.to_dict() for doc in db.collection("edges").stream()]
+        shipments = [doc.to_dict() for doc in db.collection("shipments").stream()]
+        nodes, edges = scope_graph(current_user, nodes, edges, shipments)
         
-        return {"nodes": nodes, "edges": edges, "edgeGeometrySource": "graph_only"}
+        return {
+            "nodes": nodes,
+            "edges": edges,
+            "edgeGeometrySource": "graph_only",
+            "scopeRole": current_user.get("role"),
+        }
     except Exception as e:
         print(f"[API ERROR] roots/graph: {e}")
         return {"error": str(e), "nodes": [], "edges": []}

@@ -1,9 +1,17 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
 from app.services.firebase_service import firebase_service
 from app.services.risk_engine import risk_engine
 from app.services.movement_scheduler import movement_scheduler
+from app.services.auth_service import get_current_user
+from app.services.access_control import (
+    can_apply_reroute,
+    can_fast_forward,
+    can_view_shipment,
+    require_allowed,
+    scope_shipments,
+)
 
 router = APIRouter()
 
@@ -17,8 +25,17 @@ class ApplyRerouteRequest(BaseModel):
     disruptionId: Optional[str] = None
 
 
+def _viewer_payload(user: dict) -> dict:
+    return {
+        "id": user.get("id"),
+        "role": user.get("role"),
+        "roleLabel": user.get("roleLabel"),
+        "organizationId": user.get("organizationId"),
+    }
+
+
 @router.get("/shipments")
-async def get_shipments():
+async def get_shipments(current_user: dict = Depends(get_current_user)):
     """Get all shipments with their dynamically calculated live risk scores."""
     try:
         db = firebase_service.db
@@ -43,13 +60,14 @@ async def get_shipments():
             # we just dynamically evaluate it for the frontend upon poll.
             results.append(shipment)
             
-        return {"shipments": results, "count": len(results)}
+        scoped = scope_shipments(current_user, results)
+        return {"shipments": scoped, "count": len(scoped), "viewer": _viewer_payload(current_user)}
     except Exception as e:
         print(f"[API ERROR] shipments: {e}")
         return {"error": str(e), "shipments": [], "count": 0}
 
 @router.get("/shipments/{shipment_id}")
-async def get_shipment(shipment_id: str):
+async def get_shipment(shipment_id: str, current_user: dict = Depends(get_current_user)):
     """Get full specific shipment detail."""
     try:
         db = firebase_service.db
@@ -60,19 +78,24 @@ async def get_shipment(shipment_id: str):
             return {"error": "Shipment not found", "shipment": None}
             
         shipment = doc.to_dict()
+        if not can_view_shipment(current_user, shipment):
+            raise HTTPException(status_code=403, detail="Shipment is outside your role scope")
+
         risk_payload = await risk_engine.evaluate_shipment_risk(shipment)
         shipment["liveRisk"] = risk_payload
         shipment["riskScore"] = risk_payload.get("riskScore", shipment.get("riskScore", 0))
         shipment["lstmPrediction"] = risk_payload.get("lstmMultiplier", shipment.get("lstmPrediction"))
         shipment["isCritical"] = risk_payload.get("isCritical", shipment.get("isCritical", False))
         
-        return {"shipment": shipment, "error": None}
+        return {"shipment": shipment, "error": None, "viewer": _viewer_payload(current_user)}
+    except HTTPException:
+        raise
     except Exception as e:
         return {"error": str(e), "shipment": None}
 
 
 @router.post("/shipments/fast-forward")
-async def fast_forward_shipments(request: FastForwardRequest):
+async def fast_forward_shipments(request: FastForwardRequest, current_user: dict = Depends(get_current_user)):
     """
     Fast-forward ALL shipments by N simulated hours.
     Handles multi-hop leg completion and delivery detection:
@@ -81,6 +104,7 @@ async def fast_forward_shipments(request: FastForwardRequest):
     """
     hours = max(0.1, min(24.0, request.hours))
     try:
+        require_allowed(can_fast_forward(current_user), "Only Admin or Supply Chain Manager can fast-forward movement")
         result = await movement_scheduler.fast_forward(hours)
         return {
             "success": True,
@@ -93,7 +117,7 @@ async def fast_forward_shipments(request: FastForwardRequest):
 
 
 @router.post("/shipments/{shipment_id}/apply-reroute")
-async def apply_reroute(shipment_id: str, request: ApplyRerouteRequest):
+async def apply_reroute(shipment_id: str, request: ApplyRerouteRequest, current_user: dict = Depends(get_current_user)):
     """
     Apply an approved reroute plan to a specific shipment.
     Updates the optimizedRoute in Firestore and resets simState
@@ -111,6 +135,10 @@ async def apply_reroute(shipment_id: str, request: ApplyRerouteRequest):
             return {"error": "Shipment not found", "applied": False}
 
         shipment = doc.to_dict()
+        require_allowed(
+            can_view_shipment(current_user, shipment) and can_apply_reroute(current_user, shipment),
+            "Only Admin or Supply Chain Manager can apply reroutes",
+        )
         new_route = request.newRoute
 
         if len(new_route) < 2:
@@ -176,4 +204,3 @@ async def apply_reroute(shipment_id: str, request: ApplyRerouteRequest):
     except Exception as e:
         print(f"[API ERROR] apply-reroute: {e}")
         return {"error": str(e), "applied": False}
-

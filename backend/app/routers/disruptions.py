@@ -1,11 +1,13 @@
 """Disruptions API endpoints"""
 from datetime import datetime, timedelta, timezone
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, HTTPException
 from google.cloud.firestore_v1.base_query import FieldFilter
 from app.config import settings
 from app.services.disruption_detector import disruption_detector
 from app.services.firebase_service import firebase_service
 from app.services.risk_engine import risk_engine
+from app.services.auth_service import get_current_user
+from app.services.access_control import can_trigger_detection, require_allowed, scope_shipments
 
 router = APIRouter()
 
@@ -114,7 +116,7 @@ async def _auto_resolve_risk_spikes(db) -> int:
 
 
 @router.get("/disruptions")
-async def get_disruptions():
+async def get_disruptions(current_user: dict = Depends(get_current_user)):
     """Get active disruptions from Firestore with computed fallback from risky shipments."""
     db = firebase_service.db
     disruptions = []
@@ -136,8 +138,8 @@ async def get_disruptions():
     fallback = []
     try:
         shipment_docs = db.collection("shipments").stream()
-        for doc in shipment_docs:
-            shipment = doc.to_dict()
+        scoped_shipments = scope_shipments(current_user, [doc.to_dict() for doc in shipment_docs])
+        for shipment in scoped_shipments:
             risk_payload = await risk_engine.evaluate_shipment_risk(shipment)
             score = float(risk_payload.get("riskScore", shipment.get("riskScore", 0.0)))
             pos = shipment.get("currentPosition") or {}
@@ -165,8 +167,9 @@ async def get_disruptions():
 
 
 @router.post("/disruptions/detect")
-async def detect_disruptions():
+async def detect_disruptions(current_user: dict = Depends(get_current_user)):
     """Trigger disruption detection scan and persist active events when DB exists."""
+    require_allowed(can_trigger_detection(current_user), "Only Admin or Supply Chain Manager can trigger automatic detection")
     try:
         detected = await disruption_detector.detect()
         db = firebase_service.db
@@ -221,19 +224,22 @@ async def detect_disruptions():
         else:
             deduped = detected
         return {"detected": len(deduped), "disruptions": deduped}
+    except HTTPException:
+        raise
     except Exception as exc:
         print(f"[Disruptions] Detect failed: {exc}")
         return {"detected": 0, "disruptions": [], "error": str(exc)}
 
 
 @router.post("/disruptions/cleanup")
-async def cleanup_disruptions():
+async def cleanup_disruptions(current_user: dict = Depends(get_current_user)):
     """
     One-time maintenance endpoint.
     Deduplicates active disruptions by (status + type + rounded lat/lng),
     keeps the newest event, and deletes older duplicates.
     """
     db = firebase_service.db
+    require_allowed(can_trigger_detection(current_user), "Only Admin or Supply Chain Manager can clean up disruptions")
     if not db:
         return {"removed": 0, "kept": 0, "error": "Database not initialized"}
 
@@ -279,7 +285,7 @@ async def cleanup_disruptions():
 
 
 @router.post("/disruptions/purge-legacy-weather")
-async def purge_legacy_weather_disruptions():
+async def purge_legacy_weather_disruptions(current_user: dict = Depends(get_current_user)):
     """
     Removes legacy weather disruption documents that were created before source-tagging.
     Legacy criteria:
@@ -288,6 +294,7 @@ async def purge_legacy_weather_disruptions():
     - missing weatherMeta
     """
     db = firebase_service.db
+    require_allowed(can_trigger_detection(current_user), "Only Admin or Supply Chain Manager can purge disruptions")
     if not db:
         return {"removed": 0, "error": "Database not initialized"}
 

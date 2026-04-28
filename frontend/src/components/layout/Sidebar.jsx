@@ -1,12 +1,26 @@
 import { NavLink } from 'react-router-dom'
+import UserSwitcher from '../auth/UserSwitcher'
+import { useAuth } from '../../context/AuthContext'
 
 const navItems = [
   { path: '/', icon: '📊', label: 'Dashboard' },
-  { path: '/simulator', icon: '💥', label: 'What-If Simulator' },
+  {
+    path: '/simulator',
+    icon: '💥',
+    label: 'What-If Simulator',
+    roles: ['admin', 'supply_chain_manager', 'warehouse_manager', 'distributor_manager', 'carrier_partner', 'analyst'],
+  },
   { path: '/analytics', icon: '📈', label: 'Analytics' },
+  { path: '/contracts', icon: '📜', label: 'Contracts' },
 ]
 
 export default function Sidebar() {
+  const { currentUser } = useAuth()
+  const visibleItems = navItems.filter((item) => {
+    if (!item.roles) return true
+    return item.roles.includes(currentUser?.role)
+  })
+
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
@@ -18,7 +32,7 @@ export default function Sidebar() {
       </div>
 
       <nav className="sidebar-nav">
-        {navItems.map((item) => (
+        {visibleItems.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
@@ -32,6 +46,8 @@ export default function Sidebar() {
           </NavLink>
         ))}
       </nav>
+
+      <UserSwitcher />
 
       <div className="sidebar-footer">
         <p className="sidebar-footer-text">

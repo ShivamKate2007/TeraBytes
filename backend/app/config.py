@@ -12,9 +12,18 @@ class Settings:
     GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     OPENWEATHER_API_KEY: str = os.getenv("OPENWEATHER_API_KEY", "")
     NEWS_API_KEY: str = os.getenv("NEWS_API_KEY", "")
+    FRONTEND_ORIGINS: str = os.getenv(
+        "FRONTEND_ORIGINS",
+        "http://localhost:5173,http://localhost:5174,http://localhost:3000",
+    )
+    FRONTEND_ORIGIN_REGEX: str = os.getenv(
+        "FRONTEND_ORIGIN_REGEX",
+        r"https://.*\.vercel\.app",
+    )
 
     # Firebase
     FIREBASE_SERVICE_ACCOUNT: str = os.getenv("FIREBASE_SERVICE_ACCOUNT", "")
+    FIREBASE_SERVICE_ACCOUNT_JSON: str = os.getenv("FIREBASE_SERVICE_ACCOUNT_JSON", "")
     FIREBASE_PROJECT_ID: str = os.getenv("FIREBASE_PROJECT_ID", "")
 
     # App Settings

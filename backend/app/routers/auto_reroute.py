@@ -1,10 +1,12 @@
 """Auto-reroute suggestions API — read-only analysis endpoint"""
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from google.cloud.firestore_v1.base_query import FieldFilter
 from app.services.firebase_service import firebase_service
 from app.services.cascade_analyzer import cascade_analyzer
 from app.services.route_geometry_service import route_geometry_service
 from app.services.route_optimizer import route_optimizer
+from app.services.auth_service import get_current_user
+from app.services.access_control import scope_shipments
 
 router = APIRouter()
 
@@ -32,7 +34,7 @@ async def _directions_duration(node_ids: list):
 
 
 @router.get("/disruptions/reroute-suggestions")
-async def get_reroute_suggestions():
+async def get_reroute_suggestions(current_user: dict = Depends(get_current_user)):
     """
     Analyze all active disruptions against all active shipments and return
     reroute suggestions with map-ready coordinates. READ-ONLY — does NOT modify Firestore.
@@ -63,6 +65,7 @@ async def get_reroute_suggestions():
             doc.to_dict() for doc in shipment_docs
             if doc.to_dict().get("status") != "delivered"
         ]
+        all_shipments = scope_shipments(current_user, all_shipments)
 
         if not all_shipments:
             return {"suggestions": [], "count": 0}

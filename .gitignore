@@ -35,6 +35,8 @@ Thumbs.db
 
 # Build outputs
 frontend/dist/
+frontend/.deploy-check/
+frontend/.deploy-check-*/
 *.log
 
 # Firebase

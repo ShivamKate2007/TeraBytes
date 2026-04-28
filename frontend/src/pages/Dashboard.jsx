@@ -6,15 +6,19 @@ import ShipmentTable from '../components/dashboard/ShipmentTable'
 import AlertFeed from '../components/dashboard/AlertFeed'
 import NewsHeadlines from '../components/dashboard/NewsHeadlines'
 import RerouteSuggestionPanel from '../components/dashboard/RerouteSuggestionPanel'
+import RoleActionPanel from '../components/dashboard/RoleActionPanel'
+import RoleWorkspaceBanner from '../components/common/RoleWorkspaceBanner'
 import useShipments from '../hooks/useShipments'
 import useDisruptions from '../hooks/useDisruptions'
 import useAlerts from '../hooks/useAlerts'
 import useRerouteSuggestions from '../hooks/useRerouteSuggestions'
 import useShipmentAnimation from '../hooks/useShipmentAnimation'
 import { supplyChainApi } from '../services/api'
+import { useAuth } from '../context/AuthContext'
 
 export default function Dashboard() {
   const navigate = useNavigate()
+  const { currentUser, hasRole } = useAuth()
   const {
     shipments,
     loading: shipmentsLoading,
@@ -53,6 +57,7 @@ export default function Dashboard() {
     }
   })
   const [newsHeadlines, setNewsHeadlines] = useState([])
+  const [externalEvents, setExternalEvents] = useState([])
   const [newsLoading, setNewsLoading] = useState(true)
 
   // Fast-forward state
@@ -68,16 +73,18 @@ export default function Dashboard() {
 
   // Auto-detect disruptions from news on load
   useEffect(() => {
+    if (!hasRole('admin', 'supply_chain_manager')) return undefined
     supplyChainApi.detectDisruptions?.().catch(() => {})
     const interval = setInterval(() => {
       supplyChainApi.detectDisruptions?.().catch(() => {})
     }, 120_000) // re-scan every 2 minutes
     return () => clearInterval(interval)
-  }, [])
+  }, [currentUser?.id, hasRole])
 
   useEffect(() => {
     let isActive = true
     const loadGraph = async () => {
+      setGraphLoading(true)
       const payload = await supplyChainApi.getGraph()
       if (!isActive) return
       setGraph({
@@ -90,23 +97,28 @@ export default function Dashboard() {
     return () => {
       isActive = false
     }
-  }, [])
+  }, [currentUser?.id])
 
   useEffect(() => {
     let isActive = true
     const loadNews = async () => {
-      const payload = await supplyChainApi.getNewsHeadlines('India logistics', 4)
+      setNewsLoading(true)
+      const [payload, eventPayload] = await Promise.all([
+        supplyChainApi.getDashboardNewsHeadlines(6),
+        supplyChainApi.getDashboardExternalEvents(8),
+      ])
       if (!isActive) return
       setNewsHeadlines(Array.isArray(payload.headlines) ? payload.headlines : [])
+      setExternalEvents(Array.isArray(eventPayload.events) ? eventPayload.events : [])
       setNewsLoading(false)
     }
     loadNews()
-    const interval = setInterval(loadNews, 60000)
+    const interval = setInterval(loadNews, 300000)
     return () => {
       isActive = false
       clearInterval(interval)
     }
-  }, [])
+  }, [currentUser?.id])
 
   const loading = shipmentsLoading || disruptionsLoading || graphLoading
   const isReconnecting = shipmentsReconnecting || disruptionsReconnecting
@@ -153,6 +165,14 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard animate-fadeIn">
+      <RoleWorkspaceBanner />
+      <RoleActionPanel
+        shipments={shipments}
+        disruptions={disruptions}
+        alerts={alerts}
+        rerouteSuggestions={rerouteSuggestions}
+      />
+
       {/* Status bar with popup icon buttons */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, flexWrap: 'wrap' }}>
         {isReconnecting && (
@@ -242,7 +262,8 @@ export default function Dashboard() {
             className="btn btn-ghost"
             style={{ fontSize: 13, gap: 6 }}
             onClick={handleFastForward}
-            disabled={ffLoading}
+            disabled={ffLoading || !hasRole('admin', 'supply_chain_manager')}
+            title={hasRole('admin', 'supply_chain_manager') ? 'Fast Forward 1hr' : 'Only Admin or Supply Chain Manager can fast-forward movement'}
           >
             {ffLoading ? '⏳ Advancing...' : '⏩ Fast Forward 1hr'}
           </button>
@@ -344,6 +365,53 @@ export default function Dashboard() {
           />
         </div>
       </div>
+
+      <section className="external-event-review card">
+        <div className="external-event-review-header">
+          <div>
+            <span className="external-event-kicker">News Intelligence</span>
+            <h3>External Event Review</h3>
+            <p>
+              Live news candidates stay here for review before they become active disruptions or reroute triggers.
+            </p>
+          </div>
+          <div className="external-event-count">
+            <strong>{externalEvents.length}</strong>
+            <span>candidates</span>
+          </div>
+        </div>
+
+        {newsLoading && (
+          <div className="external-event-empty">Scanning live news for route-impacting incidents...</div>
+        )}
+
+        {!newsLoading && externalEvents.length === 0 && (
+          <div className="external-event-empty">No route-impacting news candidates found right now.</div>
+        )}
+
+        {!newsLoading && externalEvents.length > 0 && (
+          <div className="external-event-grid">
+            {externalEvents.slice(0, 4).map((event) => (
+              <article
+                key={event.id}
+                className={`external-event-card ${event.status === 'active_candidate' ? 'is-active-candidate' : ''}`}
+              >
+                <div className="external-event-card-top">
+                  <strong>{String(event.incidentType || 'incident').replaceAll('_', ' ').toUpperCase()}</strong>
+                  <span>{Math.round((event.confidence || 0) * 100)}%</span>
+                </div>
+                <p className="external-event-location">
+                  {event.locationName || 'Unknown location'} · {event.affectedCount || 0} shipment(s) affected
+                </p>
+                <p className="external-event-title">{event.title}</p>
+                <div className="external-event-status">
+                  {event.status === 'active_candidate' ? 'Ready for review' : 'Needs validation'}
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
 
       <ShipmentTable
         shipments={shipments}

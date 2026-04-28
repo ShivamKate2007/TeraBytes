@@ -1,8 +1,9 @@
 """Smart Supply Chain Backend — FastAPI Application"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.config import settings
 
-from app.routers import health, shipments, disruptions, routes, simulator, analytics, news, auto_reroute
+from app.routers import health, shipments, disruptions, routes, simulator, analytics, news, auto_reroute, auth, contracts
 
 app = FastAPI(
     title="Smart Supply Chain API",
@@ -13,12 +14,8 @@ app = FastAPI(
 # CORS — allow frontend origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",      # Vite dev server
-        "http://localhost:5174",      # Vite dev server (alt port)
-        "http://localhost:3000",       # Alt dev
-        "https://*.vercel.app",        # Vercel preview deploys
-    ],
+    allow_origins=[origin.strip() for origin in settings.FRONTEND_ORIGINS.split(",") if origin.strip()],
+    allow_origin_regex=settings.FRONTEND_ORIGIN_REGEX or None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,6 +23,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(health.router, prefix="/api", tags=["Health"])
+app.include_router(auth.router, prefix="/api", tags=["Auth"])
 app.include_router(shipments.router, prefix="/api", tags=["Shipments"])
 app.include_router(disruptions.router, prefix="/api", tags=["Disruptions"])
 app.include_router(routes.router, prefix="/api", tags=["Routes"])
@@ -33,12 +31,12 @@ app.include_router(simulator.router, prefix="/api", tags=["Simulator"])
 app.include_router(analytics.router, prefix="/api", tags=["Analytics"])
 app.include_router(news.router, prefix="/api", tags=["News"])
 app.include_router(auto_reroute.router, prefix="/api", tags=["Auto Reroute"])
+app.include_router(contracts.router, prefix="/api", tags=["Contracts"])
 
 
 from app.services.firebase_service import firebase_service
 from app.services.lstm_predictor import lstm_predictor
 from app.services.movement_scheduler import movement_scheduler
-from app.config import settings
 
 @app.on_event("startup")
 async def startup_event():
