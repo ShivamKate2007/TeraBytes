@@ -14,7 +14,7 @@ Recommended settings:
 - Root directory: `backend`
 - Build command: `pip install -r requirements.txt`
 - Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-- Python version: `3.11`
+- Python version: `3.11.11`
 
 Required environment variables:
 
@@ -81,6 +81,7 @@ Open the Vercel URL and verify:
 ## 4. Important Notes
 
 - Do not commit `.env`, `backend/.env`, `frontend/.env`, or `backend/firebase-admin.json`.
+- Use Python `3.11.11` on Render. Python 3.14 currently causes dependency conflicts with the pinned Google/Firebase packages.
 - Use `FIREBASE_SERVICE_ACCOUNT_JSON` on Render instead of uploading the local JSON file.
 - NewsAPI may return zero events for narrow logistics queries; the dashboard falls back to regional queries.
 - Google Directions API is used only for road path/ETA enrichment. Supply-chain decisions still use the project graph.
