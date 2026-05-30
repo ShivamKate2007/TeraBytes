@@ -18,8 +18,6 @@ const mapContainerStyle = {
   minHeight: '420px',
 }
 
-const libraries = ['visualization']
-
 function edgeColor(riskFactor) {
   if (riskFactor >= 0.8) return '#ef4444'
   if (riskFactor >= 0.55) return '#f97316'
@@ -80,7 +78,6 @@ export default function ShipmentMap({
   const { isLoaded } = useJsApiLoader({
     id: 'ssc-map',
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
-    libraries,
   })
   const [selectedShipment, setSelectedShipment] = useState(null)
   const [showHeatmap, setShowHeatmap] = useState(true)
@@ -308,7 +305,7 @@ export default function ShipmentMap({
           )
         })}
 
-        <RiskHeatmap map={mapInstance} enabled={showHeatmap} nodes={nodes} shipments={shipments} />
+        <RiskHeatmap enabled={showHeatmap} nodes={nodes} shipments={shipments} />
 
         {selectedShipment && selectedShipment.currentPosition && (
           <InfoWindowF
@@ -460,4 +457,3 @@ export default function ShipmentMap({
     </div>
   )
 }
-

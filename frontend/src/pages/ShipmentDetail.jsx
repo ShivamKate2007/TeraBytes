@@ -7,7 +7,6 @@ import { supplyChainApi } from '../services/api'
 import { CHAIN_STAGES, MAPS_DARK_STYLE } from '../utils/constants'
 
 const containerStyle = { width: '100%', height: '260px', borderRadius: '14px' }
-const mapLibraries = ['visualization']
 
 function getOrderedRouteNodeIds(shipment) {
   const journey = Array.isArray(shipment?.journey) ? shipment.journey : []
@@ -46,7 +45,6 @@ export default function ShipmentDetail() {
   const { isLoaded } = useJsApiLoader({
     id: 'ssc-map',
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
-    libraries: mapLibraries,
   })
 
   const [shipment, setShipment] = useState(null)
