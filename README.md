@@ -4,7 +4,7 @@
 
 > AI-powered predictive disruption detection and dynamic route optimization for India's supply chains.
 
-**Built for Solution Challenge 2026** | [Live Demo](#) | [Demo Video](#)
+**Built for Solution Challenge 2026** | [Live Demo](https://tera-bytes-khaki.vercel.app/) | [Demo Video](https://drive.google.com/file/d/1G0dCbpcQmt09y8VGh3wsUzGp7Ub0kwUM/view?usp=drive_link)
 
 ---
 
